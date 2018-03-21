@@ -88,6 +88,12 @@ references:
 
 jobs:
 
+  chmod_gradle:
+    steps:
+      - run:
+          name: chmod permissions
+          command: chmod +x ./gradlew
+
   # Build debug APK for unit tests and an instrumented test APK
 
   build_debug:
@@ -213,9 +219,7 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - run:
-          name: chmod permissions
-          command: chmod +x ./gradlew
+      - chmod_gradle
       - build_debug
       - build_release
       - test_unit
