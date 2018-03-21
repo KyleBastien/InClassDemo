@@ -73,7 +73,7 @@ references:
   decode_gservices_key: &decode_gservices_key
     run:
       name: Decode Google Services key
-      command: echo $GOOGLE_SERVICES_KEY | base64 -di > mobile/google-services.json
+      command: echo $GOOGLE_SERVICES_KEY | base64 -di > app/google-services.json
 
   # Google Cloud Service
 
@@ -87,13 +87,6 @@ references:
       command: echo $GCLOUD_SERVICE_KEY | base64 -di > ${HOME}/client-secret.json
 
 jobs:
-
-  chmod_gradle:
-    <<: *android_config
-    steps:
-      - run:
-          name: chmod permissions
-          command: chmod +x ./gradlew
 
   # Build debug APK for unit tests and an instrumented test APK
 
@@ -220,7 +213,6 @@ workflows:
   version: 2
   workflow:
     jobs:
-      - chmod_gradle
       - build_debug
       - build_release
       - test_unit
