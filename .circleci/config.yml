@@ -214,8 +214,8 @@ workflows:
   workflow:
     jobs:
       - run:
-        name: chmod permissions
-        command: chmod +x ./gradlew
+          name: chmod permissions
+          command: chmod +x ./gradlew
       - build_debug
       - build_release
       - test_unit
