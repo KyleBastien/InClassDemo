@@ -204,7 +204,7 @@ jobs:
       - *decode_gservices_key
       - run:
           name: Generate JaCoCo report
-          command: ./gradlew -PciBuild=true :app:testDebugUnitTestCoverage
+          command: ./gradlew -PciBuild=true :app:jacocoTestReport
       - store_artifacts:
           path: app/build/reports/
           destination: /reports/
