@@ -89,6 +89,7 @@ references:
 jobs:
 
   chmod_gradle:
+    <<: *android_config
     steps:
       - run:
           name: chmod permissions
