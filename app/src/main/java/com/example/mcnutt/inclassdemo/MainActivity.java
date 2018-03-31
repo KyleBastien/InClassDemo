@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.crashlytics.android.Crashlytics;
 import io.fabric.sdk.android.Fabric;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener  {
+public class MainActivity extends AppCompatActivity  {
 
     private static final String TAG = MainActivity.class.getSimpleName();
     private RelativeLayout relativeLayout;
@@ -25,21 +25,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         relativeLayout = findViewById(R.id.relativeLayout);
         Button button1 = findViewById(R.id.button1);
         Button button2 = findViewById(R.id.button2);
-        button1.setOnClickListener(MainActivity.this);
-        button2.setOnClickListener(MainActivity.this);
-    }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.button1:
+        assert button1 != null;
+        button1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 relativeLayout.setBackgroundColor(Color.GREEN);
                 Log.i(TAG, "Change color to green");
-                break;
-            case R.id.button2:
+            }
+        });
+
+        assert button2 != null;
+        button2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 relativeLayout.setBackgroundColor(Color.BLUE);
                 Log.i(TAG, "Change color to blue");
-                break;
-        }
+            }
+        });
     }
 }
