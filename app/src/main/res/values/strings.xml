@@ -2,4 +2,6 @@
     <string name="app_name">InClassDemo</string>
     <string name="hello_world">Hello World!</string>
     <string name="say_bye">Bye!</string>
+    <string name="button1">Button 1</string>
+    <string name="button2">Button 2</string>
 </resources>
