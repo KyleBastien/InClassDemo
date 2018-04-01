@@ -4,4 +4,11 @@
     <string name="say_bye">Bye!</string>
     <string name="button1">Button 1</string>
     <string name="button2">Button 2</string>
+    <string name="submit">SUBMIT</string>
+    <string name="enter_name">Enter name</string>
+    <string name="Welcome">Welcome: %s</string>
+    <string name="Logout">Logout</string>
+    <string name="message_on_login">Message on Login</string>
+    <string name="login">Login</string>
+    <string name="go_to_second_activity">Go to Second Activity</string>
 </resources>
