@@ -111,4 +111,15 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void canGoToRelativeAlignmentExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.relativeAlignmentExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(RelativeAlignmentExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
