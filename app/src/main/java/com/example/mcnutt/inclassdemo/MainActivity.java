@@ -99,4 +99,29 @@ public class MainActivity extends AppCompatActivity  {
         super.onDestroy();
         Log.i(TAG, "onDestroy()");
     }
+
+    public void goToWeightLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, WeightLayoutActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToNestedLinearLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, NestedLinearLayoutActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToRelativeNestedExample(View view) {
+        Intent intent = new Intent(MainActivity.this, RelativeLayoutNestedExample.class);
+        startActivity(intent);
+    }
+
+    public void goToFrameLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FrameLayoutPictureActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToTableLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, TableLayoutExampleActivity.class);
+        startActivity(intent);
+    }
 }

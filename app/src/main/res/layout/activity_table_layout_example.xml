@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".TableLayoutExampleActivity"
+    android:shrinkColumns="2"
+    android:stretchColumns="0,1,2">
+
+    <TableRow>
+        <TextView android:layout_column="1"
+            android:layout_span="2"
+            android:text="@string/mcdonalds"
+            android:background="@color/blue"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView android:text="@string/one" />
+        <TextView android:text="@string/big_mac" />
+        <TextView android:text="@string/a_big_tasty_burger"/>
+        <TextView android:text="@string/big_mac_price"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView android:text="@string/two" />
+        <TextView android:text="@string/chicken_nuggets"/>
+        <TextView android:text="@string/tasty_chicken_in_nugget_form"/>
+        <TextView android:text="@string/chicken_nuggets_price"/>
+    </TableRow>
+
+</TableLayout>
