@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="activity_margin">16dp</dimen>
+    <dimen name="textViewWidthHeightGravity">160dp</dimen>
+    <dimen name="large_font_size">48sp</dimen>
 </resources>
