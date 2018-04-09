@@ -39,4 +39,5 @@
     <string name="go_to_table_layout_example">Go to Table Layout Example</string>
     <string name="a_big_tasty_burger">A big tasty burger</string>
     <string name="tasty_chicken_in_nugget_form">Tasty chicken in nugget form that is battered and fried to perfection</string>
+    <string name="go_to_relative_alignment_example">Go to Relative Alignment Example</string>
 </resources>

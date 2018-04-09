@@ -115,6 +115,11 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    public void goToRelativeAlignmentExample(View view) {
+        Intent intent = new Intent(MainActivity.this, RelativeAlignmentExampleActivity.class);
+        startActivity(intent);
+    }
+
     public void goToFrameLayoutExample(View view) {
         Intent intent = new Intent(MainActivity.this, FrameLayoutPictureActivity.class);
         startActivity(intent);
