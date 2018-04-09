@@ -1,10 +1,5 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -13,9 +8,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.CountDownLatch;
-
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.action.ViewActions.typeText;
@@ -57,6 +49,46 @@ public class MainActivityTest {
         intended(hasComponent(SecondActivity.class.getName()));
         intended(hasExtra(Constants.KEY_NAME, "Kyle McNutt"));
         intended(hasExtra(Constants.KEY_AGE, 24));
+        Intents.release();
+    }
+
+    @Test
+    public void canGoToWeightLayoutExample() {
+        Intents.init();
+        onView(withId(R.id.weightExampleBtn)).perform(click());
+        intended(hasComponent(WeightLayoutActivity.class.getName()));
+        Intents.release();
+    }
+
+    @Test
+    public void canGoToNestedLinearLayoutExample() {
+        Intents.init();
+        onView(withId(R.id.nestedExampleBtn)).perform(click());
+        intended(hasComponent(NestedLinearLayoutActivity.class.getName()));
+        Intents.release();
+    }
+
+    @Test
+    public void canGoToRelativeNestedLayoutExample() {
+        Intents.init();
+        onView(withId(R.id.relativeExampleBtn)).perform(click());
+        intended(hasComponent(RelativeLayoutNestedExample.class.getName()));
+        Intents.release();
+    }
+
+    @Test
+    public void canGoToFrameLayoutExample() {
+        Intents.init();
+        onView(withId(R.id.frameLayoutExampleBtn)).perform(click());
+        intended(hasComponent(FrameLayoutPictureActivity.class.getName()));
+        Intents.release();
+    }
+
+    @Test
+    public void canGoToTableLayoutExample() {
+        Intents.init();
+        onView(withId(R.id.tableLayoutExample)).perform(click());
+        intended(hasComponent(TableLayoutExampleActivity.class.getName()));
         Intents.release();
     }
 
