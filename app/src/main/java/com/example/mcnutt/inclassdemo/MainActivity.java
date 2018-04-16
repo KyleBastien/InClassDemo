@@ -1,5 +1,7 @@
 package com.example.mcnutt.inclassdemo;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -131,6 +133,11 @@ public class MainActivity extends AppCompatActivity  {
 
     public void goToTableLayoutExample(View view) {
         Intent intent = new Intent(MainActivity.this, TableLayoutExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFragmentExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentExampleActivity.class);
         startActivity(intent);
     }
 }
