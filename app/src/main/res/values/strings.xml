@@ -42,4 +42,10 @@
     <string name="go_to_relative_alignment_example">Go to Relative Alignment Example</string>
     <string name="hello_world_exclam">Hello World!</string>
     <string name="go_to_fragment_example">Go to Fragment Example</string>
+    <string name="add_a">Add A</string>
+    <string name="remove_a">Rem A</string>
+    <string name="add_b">Add B</string>
+    <string name="remove_b">Rem B</string>
+    <string name="fragment_a">Fragment A</string>
+    <string name="fragment_b">Fragment B</string>
 </resources>
