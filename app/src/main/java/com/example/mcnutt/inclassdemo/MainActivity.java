@@ -140,4 +140,14 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(MainActivity.this, FragmentExampleActivity.class);
         startActivity(intent);
     }
+
+    public void goToFragmentTransactionExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentTransactionExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFragmentDataExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentDataPassingActivity.class);
+        startActivity(intent);
+    }
 }
