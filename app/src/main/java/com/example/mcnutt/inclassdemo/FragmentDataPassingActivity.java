@@ -23,7 +23,15 @@ public class FragmentDataPassingActivity extends AppCompatActivity {
     }
 
     public void sendDataToFragment(View view) {
+        int firstNumber = Integer.valueOf(this.firstNumber.getText().toString());
+        int secondNumber = Integer.valueOf(this.secondNumber.getText().toString());
+
+        Bundle bundle = new Bundle();
+        bundle.putInt(Constants.KEY_FIRST_NUMBER, firstNumber);
+        bundle.putInt(Constants.KEY_SECOND_NUMBER, secondNumber);
+
         FragmentForData fragment = new FragmentForData();
+        fragment.setArguments(bundle);
 
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.container, fragment, "fragA");

@@ -58,4 +58,7 @@
     <string name="fragment_for_data">Fragment For Data</string>
     <string name="add_two_numbers">Add two numbers</string>
     <string name="result">RESULT</string>
+    <string name="result_prompt">Result: %d</string>
+    <string name="go_to_fragment_transaction_example">Go to Fragment Transaction Example</string>
+    <string name="go_to_fragment_data_passing_example">Go to Fragment Data Passing Example</string>
 </resources>
