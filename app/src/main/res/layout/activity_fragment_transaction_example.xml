@@ -55,6 +55,38 @@
             android:onClick="replaceByFragmentB"/>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/attach_a"
+            android:onClick="attachFragmentA"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detach_a"
+            android:onClick="detachFragmentA"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/show_a"
+            android:onClick="showFragmentA"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/hide_a"
+            android:onClick="hideFragmentB"/>
+
+
+    </LinearLayout>
     
     <FrameLayout
         android:id="@+id/container"
