@@ -28,7 +28,8 @@
         <activity android:name=".RelativeAlignmentExampleActivity" />
         <activity android:name=".FrameLayoutPictureActivity" />
         <activity android:name=".TableLayoutExampleActivity" />
-        <activity android:name=".FragmentExampleActivity"></activity>
+        <activity android:name=".FragmentExampleActivity" />
+        <activity android:name=".FragmentTransactionExampleActivity"></activity>
     </application>
 
 </manifest>
