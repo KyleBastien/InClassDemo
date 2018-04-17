@@ -29,7 +29,8 @@
         <activity android:name=".FrameLayoutPictureActivity" />
         <activity android:name=".TableLayoutExampleActivity" />
         <activity android:name=".FragmentExampleActivity" />
-        <activity android:name=".FragmentTransactionExampleActivity"></activity>
+        <activity android:name=".FragmentTransactionExampleActivity" />
+        <activity android:name=".FragmentDataPassingActivity"></activity>
     </application>
 
 </manifest>
