@@ -48,4 +48,6 @@
     <string name="remove_b">Rem B</string>
     <string name="fragment_a">Fragment A</string>
     <string name="fragment_b">Fragment B</string>
+    <string name="replace_by_a">Replace by \'A\'</string>
+    <string name="replace_by_b">Replace by \'B\'</string>
 </resources>
