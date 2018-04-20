@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RelativeAlignmentExampleActivity">
+
+    <TextView
+        android:id="@+id/center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/center"
+        android:textSize="@dimen/large_font_size"
+        android:layout_centerInParent="true"/>
+
+    <TextView
+        android:id="@+id/north"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/north"
+        android:layout_above="@+id/center"
+        android:layout_alignStart="@+id/center"/>
+
+    <TextView
+        android:id="@+id/south"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/south"
+        android:layout_below="@+id/center"
+        android:layout_alignEnd="@+id/center"/>
+
+    <TextView
+        android:id="@+id/west"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/west"
+        android:layout_toStartOf="@+id/center"
+        android:layout_alignBottom="@+id/center"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/east"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/east"
+        android:layout_toEndOf="@+id/center"
+        android:layout_alignTop="@+id/center"/>
+
+</RelativeLayout>

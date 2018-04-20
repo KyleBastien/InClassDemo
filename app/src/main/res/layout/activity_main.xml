@@ -1,44 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/relativeLayout"
+<ScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:orientation="vertical">
-    
-    <EditText
-        android:id="@+id/nameEditText"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:id="@+id/relativeLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/enter_name"/>
+        tools:context=".MainActivity"
+        android:orientation="vertical">
 
-    <Button
-        android:id="@+id/loginBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/login"
-        android:onClick="onLogin"
-        />
+        <EditText
+            android:id="@+id/nameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/enter_name"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:inputType="text"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/message_on_login" />
+        <Button
+            android:id="@+id/loginBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:padding="@dimen/activity_margin"
+            android:layout_gravity="center_horizontal"
+            android:onClick="onLogin"
+            />
 
-    <Button
-        android:id="@+id/secondActivityBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/go_to_second_activity"
-        android:onClick="goToSecondActivity"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="@dimen/textViewWidthHeightGravity"
+            android:layout_height="@dimen/textViewWidthHeightGravity"
+            android:text="@string/message_on_login"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"
+            android:layout_gravity="end"
+            android:gravity="center_horizontal|bottom"/>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
+        <Button
+            android:id="@+id/secondActivityBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_second_activity"
+            android:onClick="goToSecondActivity"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
 
-</LinearLayout>
+        <Button
+            android:id="@+id/weightExampleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_weight_layout_example"
+            android:onClick="goToWeightLayoutExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
+            android:id="@+id/nestedExampleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nested_linear_layout_go_to"
+            android:onClick="goToNestedLinearLayoutExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
+            android:id="@+id/relativeExampleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/relative_nexted_example_go_to"
+            android:onClick="goToRelativeNestedExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
+            android:id="@+id/frameLayoutExampleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_frame_layout_example"
+            android:onClick="goToFrameLayoutExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
+            android:id="@+id/tableLayoutExample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_table_layout_example"
+            android:onClick="goToTableLayoutExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
+            android:id="@+id/relativeAlignmentExampleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_relative_alignment_example"
+            android:onClick="goToRelativeAlignmentExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/btn_star_big_on"
+            android:contentDescription="@string/an_image_of_a_star"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+    </LinearLayout>
+</ScrollView>

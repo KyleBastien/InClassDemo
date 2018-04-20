@@ -7,6 +7,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.graphics.Color;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity  {
@@ -98,5 +102,35 @@ public class MainActivity extends AppCompatActivity  {
     protected void onDestroy() {
         super.onDestroy();
         Log.i(TAG, "onDestroy()");
+    }
+
+    public void goToWeightLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, WeightLayoutActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToNestedLinearLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, NestedLinearLayoutActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToRelativeNestedExample(View view) {
+        Intent intent = new Intent(MainActivity.this, RelativeLayoutNestedExample.class);
+        startActivity(intent);
+    }
+
+    public void goToRelativeAlignmentExample(View view) {
+        Intent intent = new Intent(MainActivity.this, RelativeAlignmentExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFrameLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FrameLayoutPictureActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToTableLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, TableLayoutExampleActivity.class);
+        startActivity(intent);
     }
 }

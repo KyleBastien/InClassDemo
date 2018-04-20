@@ -1,10 +1,5 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.support.test.InstrumentationRegistry;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
@@ -13,11 +8,9 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.util.concurrent.CountDownLatch;
-
-import static android.support.test.InstrumentationRegistry.getInstrumentation;
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
+import static android.support.test.espresso.action.ViewActions.scrollTo;
 import static android.support.test.espresso.action.ViewActions.typeText;
 import static android.support.test.espresso.intent.Intents.intended;
 import static android.support.test.espresso.intent.matcher.IntentMatchers.hasComponent;
@@ -52,12 +45,81 @@ public class MainActivityTest {
     public void canGoToSecondActivityWithMessage() {
         onView(withId(R.id.nameEditText)).perform(typeText("Kyle McNutt"));
 
-        Intents.init();
-        onView(withId(R.id.secondActivityBtn)).perform(click());
-        intended(hasComponent(SecondActivity.class.getName()));
-        intended(hasExtra(Constants.KEY_NAME, "Kyle McNutt"));
-        intended(hasExtra(Constants.KEY_AGE, 24));
-        Intents.release();
+        try {
+            Intents.init();
+            onView(withId(R.id.secondActivityBtn)).perform(scrollTo(), click());
+            intended(hasComponent(SecondActivity.class.getName()));
+            intended(hasExtra(Constants.KEY_NAME, "Kyle McNutt"));
+            intended(hasExtra(Constants.KEY_AGE, 24));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToWeightLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.weightExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(WeightLayoutActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToNestedLinearLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.nestedExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(NestedLinearLayoutActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToRelativeNestedLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.relativeExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(RelativeLayoutNestedExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFrameLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.frameLayoutExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FrameLayoutPictureActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToTableLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.tableLayoutExample)).perform(scrollTo(), click());
+            intended(hasComponent(TableLayoutExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToRelativeAlignmentExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.relativeAlignmentExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(RelativeAlignmentExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
     }
 
 }
