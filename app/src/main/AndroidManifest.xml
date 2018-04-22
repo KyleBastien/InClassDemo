@@ -31,7 +31,8 @@
         <activity android:name=".FragmentExampleActivity" />
         <activity android:name=".FragmentTransactionExampleActivity" />
         <activity android:name=".FragmentDataPassingActivity" />
-        <activity android:name=".FragmentToActivityDataPassingExample"></activity>
+        <activity android:name=".FragmentToActivityDataPassingExample" />
+        <activity android:name=".ActivityInterFragmentCommunication"></activity>
     </application>
 
 </manifest>
