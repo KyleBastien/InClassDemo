@@ -105,15 +105,6 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 
-        <Button
-            android:id="@+id/fragmentExampleBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/go_to_fragment_example"
-            android:onClick="goToFragmentExample"
-            android:layout_marginTop="@dimen/activity_margin"
-            android:layout_marginBottom="@dimen/activity_margin"/>
-
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
@@ -122,6 +113,13 @@
             android:contentDescription="@string/an_image_of_a_star"
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <fragment
+            android:id="@+id/fragment"
+            android:name="com.example.mcnutt.inclassdemo.HelloFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:layout="@layout/fragment_hello" />
 
     </LinearLayout>
 </ScrollView>
