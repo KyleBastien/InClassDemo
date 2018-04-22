@@ -47,12 +47,14 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/replaceWithFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/replace_by_a"
             android:onClick="replaceByFragmentA"/>
 
         <Button
+            android:id="@+id/replaceWithFragmentB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/replace_by_b"
@@ -66,24 +68,28 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/attachFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/attach_a"
             android:onClick="attachFragmentA"/>
 
         <Button
+            android:id="@+id/detachFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/detach_a"
             android:onClick="detachFragmentA"/>
 
         <Button
+            android:id="@+id/showFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/show_a"
             android:onClick="showFragmentA"/>
 
         <Button
+            android:id="@+id/hideFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/hide_a"
