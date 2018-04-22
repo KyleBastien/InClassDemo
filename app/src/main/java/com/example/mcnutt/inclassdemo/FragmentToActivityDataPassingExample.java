@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-public class FragmentToActivityDataPassingExample extends AppCompatActivity {
+public class FragmentToActivityDataPassingExample extends AppCompatActivity implements MyListener {
 
     private static final String TAG = FragmentToActivityDataPassingExample.class.getSimpleName();
 
@@ -29,5 +29,12 @@ public class FragmentToActivityDataPassingExample extends AppCompatActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.containerFragmentAddNumbers, fragmentAddNumbers, "fragA");
         transaction.commit();
+    }
+
+    @Override
+    public void addTwoNumbers(int num1, int num2) {
+        int result = num1 + num2;
+
+        textView.setText(String.format(getString(R.string.result_prompt), result));
     }
 }
