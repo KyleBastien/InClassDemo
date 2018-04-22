@@ -54,8 +54,4 @@
     <string name="detach_a">Detach A</string>
     <string name="show_a">Show A</string>
     <string name="hide_a">Hide A</string>
-    <string name="send_data_to_fragment">Send Data to Fragment</string>
-    <string name="fragment_for_data">Fragment For Data</string>
-    <string name="add_two_numbers">Add two numbers</string>
-    <string name="result">RESULT</string>
 </resources>
