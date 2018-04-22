@@ -146,4 +146,9 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(MainActivity.this, FragmentDataPassingActivity.class);
         startActivity(intent);
     }
+
+    public void goToFragmentToActivityDataExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentToActivityDataPassingExample.class);
+        startActivity(intent);
+    }
 }
