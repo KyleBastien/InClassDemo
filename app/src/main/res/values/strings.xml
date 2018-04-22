@@ -61,10 +61,8 @@
     <string name="result_prompt">Result: %d</string>
     <string name="go_to_fragment_transaction_example">Go to Fragment Transaction Example</string>
     <string name="go_to_fragment_data_passing_example">Go to Fragment Data Passing Example</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="enter_your_first_number">Enter your first number</string>
     <string name="enter_your_second_number">Enter your second number</string>
     <string name="send_data_to_parent_activity">Send Data to Parent Activity</string>
+    <string name="go_to_fragment_to_activity_data_passing_example">Go to Fragment to Activity Data Passing Example</string>
 </resources>
