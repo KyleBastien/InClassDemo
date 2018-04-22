@@ -6,6 +6,7 @@
     android:background="@color/blue">
 
     <TextView
+        android:id="@+id/fragmentAText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/fragment_a"/>

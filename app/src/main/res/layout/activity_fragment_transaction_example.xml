@@ -12,24 +12,28 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/addFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_a"
             android:onClick="addFragmentA"/>
 
         <Button
+            android:id="@+id/removeFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/remove_a"
             android:onClick="removeFragmentA"/>
 
         <Button
+            android:id="@+id/addFragmentB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/add_b"
             android:onClick="addFragmentB"/>
 
         <Button
+            android:id="@+id/removeFragmentB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/remove_b"

@@ -30,7 +30,7 @@
         <activity android:name=".TableLayoutExampleActivity" />
         <activity android:name=".FragmentExampleActivity" />
         <activity android:name=".FragmentTransactionExampleActivity" />
-        <activity android:name=".FragmentDataPassingActivity"></activity>
+        <activity android:name=".FragmentDataPassingActivity" />
     </application>
 
 </manifest>
