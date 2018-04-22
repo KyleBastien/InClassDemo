@@ -122,4 +122,37 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void canGoToBasicFragmentExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FragmentExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFragmentTransactionExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentTransactionExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FragmentTransactionExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFragmentDataExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentDataPassingExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FragmentDataPassingActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
