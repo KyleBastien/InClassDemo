@@ -17,7 +17,7 @@
     <string name="left">Left</string>
     <string name="middle">Middle</string>
     <string name="cancel">Cancel</string>
-    <string name="ok">Ok</string>
+    <string name="ok">OK</string>
     <string name="type_a_name_here">Type a name here</string>
     <string name="nested_linear_layout_go_to">Go to nested example</string>
     <string name="enter_some_text">Enter some text</string>
@@ -47,7 +47,6 @@
     <string name="add_b">Add B</string>
     <string name="remove_b">Rem B</string>
     <string name="fragment_a">Fragment A</string>
-    <string name="fragment_b">Fragment B</string>
     <string name="replace_by_a">Replace by \'A\'</string>
     <string name="replace_by_b">Replace by \'B\'</string>
     <string name="attach_a">Attach A</string>
@@ -67,4 +66,6 @@
     <string name="go_to_fragment_to_activity_data_passing_example">Go to Fragment to Activity Data Passing Example</string>
     <string name="fragment_b">Fragment B</string>
     <string name="send_data_to_fragment_result">Send Data to Fragment Result</string>
+    <string name="numbers_recieved_in_activity">Numbers received in Activity: %d, %d</string>
+    <string name="go_to_inter_fragment_communication_example">Go to Inter-Fragment Communication Example</string>
 </resources>

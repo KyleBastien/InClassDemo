@@ -141,6 +141,15 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 
+        <Button
+            android:id="@+id/fragmentToFragmentDataExampleBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_inter_fragment_communication_example"
+            android:onClick="goToInterfragmentDataExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"

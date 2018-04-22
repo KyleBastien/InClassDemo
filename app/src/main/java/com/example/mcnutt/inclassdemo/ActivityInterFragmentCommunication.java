@@ -5,10 +5,12 @@ import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 public class ActivityInterFragmentCommunication extends AppCompatActivity implements MyListener {
 
     private FragmentManager manager;
+    private int firstNum, secondNum;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +38,14 @@ public class ActivityInterFragmentCommunication extends AppCompatActivity implem
 
     @Override
     public void addTwoNumbers(int num1, int num2) {
-
+        firstNum = num1;
+        secondNum = num2;
+        Toast.makeText(this, String.format(getString(R.string.numbers_recieved_in_activity),
+                num1, num2), Toast.LENGTH_LONG).show();
     }
 
     public void sendDataToFragment(View view) {
+        FragmentResult fragmentResult = (FragmentResult) manager.findFragmentByTag("fragB");
+        fragmentResult.addTwoNumbers(firstNum, secondNum);
     }
 }
