@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ActivityInterFragmentCommunication"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/containerFragmentAddNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ten"
+        android:layout_weight="1"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ten"
+        android:layout_marginTop="@dimen/ten"
+        android:onClick="sendDataToFragment"
+        android:text="@string/send_data_to_fragment_result"/>
+
+    <FrameLayout
+        android:id="@+id/containerFragmentResult"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ten"
+        android:layout_weight="1"/>
+
+</LinearLayout>
