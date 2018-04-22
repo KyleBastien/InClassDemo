@@ -45,45 +45,4 @@ public class FragmentTransactionExampleActivityTest {
         onView(withId(R.id.fragmentBText)).check(doesNotExist());
     }
 
-    @Test
-    public void canReplaceFragmentAAndB() {
-        onView(withId(R.id.replaceWithFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
-
-        onView(withId(R.id.replaceWithFragmentB)).perform(click());
-
-        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
-    }
-
-    @Test
-    public void canAttachAndDetachFragmentA() {
-        onView(withId(R.id.addFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
-
-        onView(withId(R.id.detachFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(doesNotExist());
-
-        onView(withId(R.id.attachFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
-    }
-
-    @Test
-    public void canShowHideFragmentA() {
-        onView(withId(R.id.addFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
-
-        onView(withId(R.id.hideFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(matches(not(isDisplayed())));
-
-        onView(withId(R.id.showFragmentA)).perform(click());
-
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
-    }
-
 }
