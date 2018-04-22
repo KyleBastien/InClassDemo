@@ -83,20 +83,8 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity {
     }
 
     public void showFragmentA(View view) {
-        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
-        if (fragmentA != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.show(fragmentA);
-            transaction.commit();
-        }
     }
 
     public void hideFragmentB(View view) {
-        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
-        if (fragmentA != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.hide(fragmentA);
-            transaction.commit();
-        }
     }
 }
