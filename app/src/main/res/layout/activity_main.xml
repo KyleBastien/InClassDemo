@@ -114,12 +114,5 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 
-        <fragment
-            android:id="@+id/fragment"
-            android:name="com.example.mcnutt.inclassdemo.HelloFragment"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            tools:layout="@layout/fragment_hello" />
-
     </LinearLayout>
 </ScrollView>
