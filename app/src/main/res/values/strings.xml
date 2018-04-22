@@ -65,4 +65,6 @@
     <string name="enter_your_second_number">Enter your second number</string>
     <string name="send_data_to_parent_activity">Send Data to Parent Activity</string>
     <string name="go_to_fragment_to_activity_data_passing_example">Go to Fragment to Activity Data Passing Example</string>
+    <string name="fragment_b">Fragment B</string>
+    <string name="send_data_to_fragment_result">Send Data to Fragment Result</string>
 </resources>
