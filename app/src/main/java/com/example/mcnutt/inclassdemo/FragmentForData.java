@@ -13,9 +13,6 @@ public class FragmentForData extends Fragment {
 
     private Button btnAdd;
     private TextView textViewResult;
-    private int firstNumber = 0;
-    private int secondNumber = 0;
-    private FragmentDataPassingActivity.Operation operation;
 
     @Nullable
     @Override
@@ -25,10 +22,14 @@ public class FragmentForData extends Fragment {
         btnAdd = view.findViewById(R.id.btnAdd);
         textViewResult = view.findViewById(R.id.textViewResult);
 
+        Bundle bundle = getArguments();
+        final int firstNum = bundle.getInt(Constants.KEY_FIRST_NUMBER, 0);
+        final int secondNum = bundle.getInt(Constants.KEY_SECOND_NUMBER, 0);
+
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addTwoNumbers(operation.firstNumber, operation.secondNumber);
+                addTwoNumbers(firstNum, secondNum);
             }
         });
 
@@ -38,14 +39,5 @@ public class FragmentForData extends Fragment {
     private void addTwoNumbers(int firstNum, int secondNum) {
         int result = firstNum + secondNum;
         textViewResult.setText(String.format(getString(R.string.result_prompt), result));
-    }
-
-    public void setData(int firstNumber, int secondNumber) {
-        this.firstNumber = firstNumber;
-        this.secondNumber = secondNumber;
-    }
-
-    public void setOperation(FragmentDataPassingActivity.Operation operation) {
-        this.operation = operation;
     }
 }
