@@ -63,28 +63,4 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity {
         transaction.replace(R.id.container, fragmentB, "fragB");
         transaction.commit();
     }
-
-    public void attachFragmentA(View view) {
-        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
-        if (fragmentA != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.attach(fragmentA);
-            transaction.commit();
-        }
-    }
-
-    public void detachFragmentA(View view) {
-        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
-        if (fragmentA != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.detach(fragmentA);
-            transaction.commit();
-        }
-    }
-
-    public void showFragmentA(View view) {
-    }
-
-    public void hideFragmentB(View view) {
-    }
 }
