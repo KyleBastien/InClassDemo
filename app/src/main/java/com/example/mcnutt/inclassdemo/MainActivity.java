@@ -1,5 +1,7 @@
 package com.example.mcnutt.inclassdemo;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +9,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.graphics.Color;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity  {
@@ -127,6 +133,21 @@ public class MainActivity extends AppCompatActivity  {
 
     public void goToTableLayoutExample(View view) {
         Intent intent = new Intent(MainActivity.this, TableLayoutExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFragmentExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFragmentTransactionExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentTransactionExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToFragmentDataExample(View view) {
+        Intent intent = new Intent(MainActivity.this, FragmentDataPassingActivity.class);
         startActivity(intent);
     }
 }

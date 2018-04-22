@@ -3,4 +3,9 @@
     <dimen name="activity_margin">16dp</dimen>
     <dimen name="textViewWidthHeightGravity">160dp</dimen>
     <dimen name="large_font_size">48sp</dimen>
+    <dimen name="margin_container">10dp</dimen>
+    <dimen name="linear_layout_padding">10dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="twenty">20dp</dimen>
+    <dimen name="result_size">30sp</dimen>
 </resources>

@@ -122,4 +122,59 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void canGoToWeightLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.weightExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(WeightLayoutActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToNestedLinearLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.nestedExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(NestedLinearLayoutActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToRelativeNestedLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.relativeExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(RelativeLayoutNestedExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFrameLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.frameLayoutExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FrameLayoutPictureActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToTableLayoutExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.tableLayoutExample)).perform(scrollTo(), click());
+            intended(hasComponent(TableLayoutExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
