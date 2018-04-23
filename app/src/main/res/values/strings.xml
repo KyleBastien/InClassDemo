@@ -68,4 +68,7 @@
     <string name="send_data_to_fragment_result">Send Data to Fragment Result</string>
     <string name="numbers_recieved_in_activity">Numbers received in Activity: %d, %d</string>
     <string name="go_to_inter_fragment_communication_example">Go to Inter-Fragment Communication Example</string>
+    <string name="back">BACK</string>
+    <string name="pop_add_a_inclusive">Pop Add A Inclusive</string>
+    <string name="pop_add_b">Pop Add B</string>
 </resources>
