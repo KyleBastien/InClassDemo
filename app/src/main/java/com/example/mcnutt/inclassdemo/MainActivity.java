@@ -156,4 +156,9 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(MainActivity.this, ActivityInterFragmentCommunication.class);
         startActivity(intent);
     }
+
+    public void goToFragmentScreenRotation(View view) {
+        Intent intent = new Intent(MainActivity.this, ActivityScreenRotationExample.class);
+        startActivity(intent);
+    }
 }

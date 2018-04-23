@@ -71,4 +71,11 @@
     <string name="back">BACK</string>
     <string name="pop_add_a_inclusive">Pop Add A Inclusive</string>
     <string name="pop_add_b">Pop Add B</string>
+    <string name="new_button">New Button</string>
+    <string name="this_is_for_a_screen_rotation_example">This is for a screen rotation example</string>
+    <string name="radio_button_for_rotation_fragment_example">Radio Button for Rotation Fragment Example</string>
+    <string name="checkbox_for_rotation_fragment_example">Checkbox for Rotation Fragment Example</string>
+    <string name="score_value">Score value: %d</string>
+    <string name="dummy_text">Dummy Text</string>
+    <string name="go_to_fragment_rotation_example">Go to Fragment Rotation Example</string>
 </resources>
