@@ -30,7 +30,10 @@ public class FragmentRotationExample extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.i(TAG, "onCreate()");
-        score = 0;
+
+        if(savedInstanceState != null) {
+            score = savedInstanceState.getInt(Constants.KEY_SCORE, 0);
+        }
         Toast.makeText(getActivity(), String.format(getString(R.string.score_value), score), Toast.LENGTH_LONG).show();
     }
 
@@ -41,6 +44,11 @@ public class FragmentRotationExample extends Fragment {
 
         button = view.findViewById(R.id.rotationFragBtn);
         textView = view.findViewById(R.id.rotationFragTextView);
+
+        if(savedInstanceState != null) {
+            button.setText(savedInstanceState.getString(Constants.KEY_BUTTON_TXT, getString(R.string.login)));
+            textView.setText(savedInstanceState.getString(Constants.KEY_TEXTVIEW_TEXT, getString(R.string.fragment_a)));
+        }
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +85,15 @@ public class FragmentRotationExample extends Fragment {
     public void onPause() {
         super.onPause();
         Log.i(TAG, "onPause()");
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putInt(Constants.KEY_SCORE, score);
+        outState.putString(Constants.KEY_TEXTVIEW_TEXT, textView.getText().toString());
+        outState.putString(Constants.KEY_BUTTON_TXT, button.getText().toString());
     }
 
     @Override
