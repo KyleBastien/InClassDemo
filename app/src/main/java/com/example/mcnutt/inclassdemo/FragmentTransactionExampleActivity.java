@@ -138,4 +138,13 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity implem
 
         Log.i(TAG, "\n" + msg.toString() + " \n ");
     }
+
+    @Override
+    public void onBackPressed() {
+        if (manager.getBackStackEntryCount() > 0) {
+            manager.popBackStack();
+        } else {
+            super.onBackPressed();
+        }
+    }
 }
