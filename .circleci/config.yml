@@ -172,14 +172,17 @@ jobs:
           name: Authenticate with Google Cloud
           command: gcloud auth activate-service-account firebase-adminsdk-ufrbo@weeklyprojectdemo.iam.gserviceaccount.com --key-file ${HOME}/client-secret.json
       - run:
+          name: Set a timestamp variable for the Google Cloud bucket folder
+          command: echo 'export DATE_WITH_TIME=`date "+%Y%m%d%H%M%S"`' >> $BASH_ENV
+      - run:
           name: Run instrumented test on Firebase Test Lab
-          command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus6P,version=27,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/coverage.ec --directories-to-pull=/sdcard --timeout 20m
+          command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus6P,version=27,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/coverage.ec --directories-to-pull=/sdcard --timeout 20m --results-dir=${DATE_WITH_TIME}
       - run:
           name: Create directory to store test results
           command: mkdir firebase
       - run:
           name: Download instrumented test results from Firebase Test Lab
-          command: gsutil -m cp -r -U "`gsutil ls gs://test-lab-29mxix4d497dz-kn61wvh0vqny2 | tail -1`*" /root/workspace/firebase/
+          command: gsutil -m cp -r -U gs://test-lab-29mxix4d497dz-kn61wvh0vqny2/${DATE_WITH_TIME} /root/workspace/firebase/
       - *persist_firebase_workspace
       - store_artifacts:
           path: firebase/
