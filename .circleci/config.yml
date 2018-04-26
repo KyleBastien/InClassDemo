@@ -179,7 +179,7 @@ jobs:
           command: echo '$DATE_WITH_TIME' >> $BASH_ENV
       - run:
           name: Echo timestamp variable for debugging
-          command: echo "${DATE_WITH_TIME}"
+          command: ${DATE_WITH_TIME}
       - run:
           name: Run instrumented test on Firebase Test Lab
           command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus6P,version=27,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/coverage.ec --directories-to-pull=/sdcard --timeout 20m --results-dir=${DATE_WITH_TIME}
