@@ -78,4 +78,5 @@
     <string name="score_value">Score value: %d</string>
     <string name="dummy_text">Dummy Text</string>
     <string name="go_to_fragment_rotation_example">Go to Fragment Rotation Example</string>
+    <string name="go_to_simple_volley_example">Go to Simple Volley Example</string>
 </resources>
