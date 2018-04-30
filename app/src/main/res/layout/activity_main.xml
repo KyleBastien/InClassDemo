@@ -33,6 +33,18 @@
             />
 
         <TextView
+            android:id="@+id/userName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"/>
+
+        <ImageView
+            android:id="@+id/userPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ten"/>
+
+        <TextView
             android:id="@+id/textView"
             android:layout_width="@dimen/textViewWidthHeightGravity"
             android:layout_height="@dimen/textViewWidthHeightGravity"
