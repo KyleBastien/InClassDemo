@@ -79,4 +79,6 @@
     <string name="dummy_text">Dummy Text</string>
     <string name="go_to_fragment_rotation_example">Go to Fragment Rotation Example</string>
     <string name="go_to_simple_volley_example">Go to Simple Volley Example</string>
+    <string name="a_picture_of_a_kitten">A Picture of a Kitten</string>
+    <string name="go_to_more_complex_volley_example">Go to More Complex Volley Example</string>
 </resources>

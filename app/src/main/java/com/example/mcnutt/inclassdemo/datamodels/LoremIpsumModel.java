@@ -17,9 +17,8 @@ public class LoremIpsumModel {
         queue = Volley.newRequestQueue(context);
     }
 
-    public StringRequest getLoremIpsum(Response.Listener<String> listener, Response.ErrorListener errorListener) {
+    public void getLoremIpsum(Response.Listener<String> listener, Response.ErrorListener errorListener) {
         StringRequest request = new StringRequest(Request.Method.GET, loremIpsumBaseApi, listener, errorListener);
         queue.add(request);
-        return request;
     }
 }
