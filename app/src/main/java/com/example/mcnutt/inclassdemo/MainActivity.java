@@ -161,4 +161,9 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(MainActivity.this, ActivityScreenRotationExample.class);
         startActivity(intent);
     }
+
+    public void goToSimpleVolleyExample(View view) {
+        Intent intent = new Intent(MainActivity.this, SimpleVolleyExampleActivity.class);
+        startActivity(intent);
+    }
 }
