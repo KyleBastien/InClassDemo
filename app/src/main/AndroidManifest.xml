@@ -34,7 +34,8 @@
         <activity android:name=".FragmentToActivityDataPassingExample" />
         <activity android:name=".ActivityInterFragmentCommunication" />
         <activity android:name=".ActivityScreenRotationExample" />
-        <activity android:name=".SimpleVolleyExampleActivity"></activity>
+        <activity android:name=".SimpleVolleyExampleActivity" />
+        <activity android:name=".MoreComplexVolleyExampleActivity"></activity>
     </application>
 
 </manifest>
