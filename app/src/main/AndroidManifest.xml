@@ -35,7 +35,8 @@
         <activity android:name=".ActivityInterFragmentCommunication" />
         <activity android:name=".ActivityScreenRotationExample" />
         <activity android:name=".SimpleVolleyExampleActivity" />
-        <activity android:name=".MoreComplexVolleyExampleActivity"></activity>
+        <activity android:name=".MoreComplexVolleyExampleActivity" />
+        <activity android:name=".SignInActivity"></activity>
     </application>
 
 </manifest>

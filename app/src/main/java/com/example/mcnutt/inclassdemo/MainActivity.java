@@ -1,7 +1,5 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -18,6 +21,12 @@ public class MainActivity extends AppCompatActivity  {
     private Button loginBtn;
     private EditText editText;
     private TextView textView;
+    private TextView userName;
+    private ImageView userPhoto;
+
+    // Firebase instance variables
+    private FirebaseAuth mFirebaseAuth;
+    private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +36,23 @@ public class MainActivity extends AppCompatActivity  {
         loginBtn = findViewById(R.id.loginBtn);
         editText = findViewById(R.id.nameEditText);
         textView = findViewById(R.id.textView);
+        userName = findViewById(R.id.userName);
+        userPhoto = findViewById(R.id.userPhoto);
+
+        // Initialize Firebase Auth
+        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        if (mFirebaseUser == null) {
+            // Not signed in, launch the Sign In activity
+            startActivity(new Intent(this, SignInActivity.class));
+            finish();
+            return;
+        } else {
+            userName.setText(mFirebaseUser.getDisplayName());
+            if (mFirebaseUser.getPhotoUrl() != null) {
+                Picasso.get().load(mFirebaseUser.getPhotoUrl().toString()).into(userPhoto);
+            }
+        }
 
         Log.i(TAG, "onCreate()");
     }
