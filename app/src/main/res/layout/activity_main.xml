@@ -159,6 +159,15 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 
+        <Button
+            android:id="@+id/simpleVolleyExample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_simple_volley_example"
+            android:onClick="goToSimpleVolleyExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"
