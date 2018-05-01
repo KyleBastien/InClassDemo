@@ -202,4 +202,9 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(MainActivity.this, SimpleFirebaseExample.class);
         startActivity(intent);
     }
+
+    public void goToMoreComplexFirebaseDBExample(View view) {
+        Intent intent = new Intent(MainActivity.this, MoreComplexFirebaseExample.class);
+        startActivity(intent);
+    }
 }

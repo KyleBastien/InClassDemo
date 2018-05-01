@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MoreComplexFirebaseExample">
+
+    <EditText
+        android:id="@+id/newTodoItemText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/addTodoItem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/newTodoItemText"
+        android:onClick="addTodoItem"
+        android:text="@string/add_todo_item"/>
+
+    <FrameLayout
+        android:id="@+id/todoItemListFragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addTodoItem"
+        android:layout_margin="@dimen/ten" />
+
+</RelativeLayout>
