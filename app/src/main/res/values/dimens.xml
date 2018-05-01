@@ -9,4 +9,5 @@
     <dimen name="twenty">20dp</dimen>
     <dimen name="result_size">30sp</dimen>
     <dimen name="ten">10dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
 </resources>
