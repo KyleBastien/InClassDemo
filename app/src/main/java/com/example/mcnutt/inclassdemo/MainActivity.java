@@ -197,4 +197,9 @@ public class MainActivity extends AppCompatActivity  {
         Intent intent = new Intent(MainActivity.this, MoreComplexVolleyExampleActivity.class);
         startActivity(intent);
     }
+
+    public void goToSimpleFirebaseExample(View view) {
+        Intent intent = new Intent(MainActivity.this, SimpleFirebaseExample.class);
+        startActivity(intent);
+    }
 }

@@ -82,4 +82,5 @@
     <string name="a_picture_of_a_kitten">A Picture of a Kitten</string>
     <string name="go_to_more_complex_volley_example">Go to More Complex Volley Example</string>
     <string name="sign_in">Sign In</string>
+    <string name="go_to_simple_firebase_db_example">Go to Simple Firebase DB Example</string>
 </resources>
