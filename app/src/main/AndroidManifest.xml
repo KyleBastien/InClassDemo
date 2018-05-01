@@ -37,7 +37,8 @@
         <activity android:name=".SimpleVolleyExampleActivity" />
         <activity android:name=".MoreComplexVolleyExampleActivity" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".SimpleFirebaseExample"></activity>
+        <activity android:name=".SimpleFirebaseExample" />
+        <activity android:name=".MoreComplexFirebaseExample"></activity>
     </application>
 
 </manifest>
