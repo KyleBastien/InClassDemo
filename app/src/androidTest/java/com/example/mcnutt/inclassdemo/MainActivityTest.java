@@ -155,4 +155,37 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void canGoToFragmentToActivityExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentToActivityDataExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FragmentToActivityDataPassingExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToInterFragmentDataExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentToFragmentDataExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ActivityInterFragmentCommunication.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFragmentScreenRotationExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentScreenRotationExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ActivityScreenRotationExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
