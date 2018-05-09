@@ -85,4 +85,5 @@
     <string name="go_to_simple_firebase_db_example">Go to Simple Firebase DB Example</string>
     <string name="add_todo_item">Add Todo Item</string>
     <string name="go_to_complex_firebase_example">Go to Complex Firebase Example</string>
+    <string name="go_to_room_persistence_example">Go to Room Persistence Example</string>
 </resources>
