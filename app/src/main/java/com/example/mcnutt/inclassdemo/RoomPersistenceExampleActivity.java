@@ -38,7 +38,8 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
         }
         fakeNewUser.setEmail(email);
         fakeNewUser.setPhotoUrl("https://i.imgur.com/ZYVZT1d.jpg");
-        fakeNewUser.setDisplayName("This is a fake user");
+        fakeNewUser.setFirstName("Thisis");
+        fakeNewUser.setLastName("afakeuser");
 
         new UpdateUserTask(this, fakeNewUser).execute();
     }
@@ -47,7 +48,8 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
         User currentUser = new User();
         currentUser.setEmail(this.email.getText().toString());
         currentUser.setPhotoUrl(this.photoUrl.getText().toString());
-        currentUser.setDisplayName(this.displayName.getText().toString());
+        currentUser.setFirstName(this.displayName.getText().toString().split(" ")[0]);
+        currentUser.setLastName(this.displayName.getText().toString().split(" ")[1]);
 
         new DeleteUserTask(this, currentUser).execute();
     }
@@ -119,7 +121,7 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
             }
 
             activity.email.setText(user.getEmail());
-            activity.displayName.setText(user.getDisplayName());
+            activity.displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
             activity.photoUrl.setText(user.getPhotoUrl());
         }
     }
@@ -161,7 +163,7 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
             }
 
             activity.email.setText(user.getEmail());
-            activity.displayName.setText(user.getDisplayName());
+            activity.displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
             activity.photoUrl.setText(user.getPhotoUrl());
         }
     }
