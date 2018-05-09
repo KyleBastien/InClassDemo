@@ -19,8 +19,8 @@ public interface UserDao {
     @Query("SELECT * FROM user WHERE email IN (:emails)")
     List<User> loadAllByIds(String[] emails);
 
-    @Query("SELECT * FROM user WHERE display_name LIKE :displayName LIMIT 1")
-    User findByName(String displayName);
+    @Query("SELECT * FROM user WHERE first_name LIKE :firstName and last_name LIKE :lastName LIMIT 1")
+    User findByName(String firstName, String lastName);
 
     @Update
     void updateUsers(User... users);
