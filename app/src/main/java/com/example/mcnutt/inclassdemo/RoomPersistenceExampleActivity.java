@@ -32,11 +32,60 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
 
     public void updateDatabase(View view) {
         User fakeNewUser = new User();
-        fakeNewUser.setEmail(this.email.getText().toString());
+        String email = this.email.getText().toString();
+        if(email.equals("")) {
+            email = "fakeuser@google.com";
+        }
+        fakeNewUser.setEmail(email);
         fakeNewUser.setPhotoUrl("https://i.imgur.com/ZYVZT1d.jpg");
         fakeNewUser.setDisplayName("This is a fake user");
 
         new UpdateUserTask(this, fakeNewUser).execute();
+    }
+
+    public void deleteUser(View view) {
+        User currentUser = new User();
+        currentUser.setEmail(this.email.getText().toString());
+        currentUser.setPhotoUrl(this.photoUrl.getText().toString());
+        currentUser.setDisplayName(this.displayName.getText().toString());
+
+        new DeleteUserTask(this, currentUser).execute();
+    }
+
+    private static class DeleteUserTask extends AsyncTask<Void, Void, User> {
+
+        private WeakReference<Activity> weakActivity;
+        private User user;
+
+        public DeleteUserTask(Activity activity, User user) {
+            weakActivity = new WeakReference<>(activity);
+            this.user = user;
+        }
+
+        @Override
+        protected User doInBackground(Void... voids) {
+            Activity activity = weakActivity.get();
+            if(activity == null) {
+                return null;
+            }
+
+            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
+
+            db.userDao().delete(user);
+            return user;
+        }
+
+        @Override
+        protected void onPostExecute(User user) {
+            RoomPersistenceExampleActivity activity = (RoomPersistenceExampleActivity) weakActivity.get();
+            if(user == null || activity == null) {
+                return;
+            }
+
+            activity.email.setText("");
+            activity.displayName.setText("");
+            activity.photoUrl.setText("");
+        }
     }
 
     private static class UpdateUserTask extends AsyncTask<Void, Void, User> {
