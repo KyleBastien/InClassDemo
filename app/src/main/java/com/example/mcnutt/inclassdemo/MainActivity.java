@@ -18,6 +18,7 @@ import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity  {
 
@@ -56,9 +57,10 @@ public class MainActivity extends AppCompatActivity  {
             userName.setText(mFirebaseUser.getDisplayName());
 
             User user = new User();
-            user.setEmail(mFirebaseUser.getEmail());
-            user.setDisplayName(mFirebaseUser.getDisplayName());
-            user.setPhotoUrl(mFirebaseUser.getPhotoUrl().toString());
+            user.setEmail(Objects.requireNonNull(mFirebaseUser.getEmail()));
+            user.setFirstName(Objects.requireNonNull(mFirebaseUser.getDisplayName()).split(" ")[0]);
+            user.setLastName(Objects.requireNonNull(mFirebaseUser.getDisplayName()).split(" ")[1]);
+            user.setPhotoUrl(Objects.requireNonNull(mFirebaseUser.getPhotoUrl()).toString());
 
             new SetUserTask(this, user).execute();
 
