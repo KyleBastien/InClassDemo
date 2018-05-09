@@ -86,4 +86,5 @@
     <string name="add_todo_item">Add Todo Item</string>
     <string name="go_to_complex_firebase_example">Go to Complex Firebase Example</string>
     <string name="go_to_room_persistence_example">Go to Room Persistence Example</string>
+    <string name="update">Update</string>
 </resources>
