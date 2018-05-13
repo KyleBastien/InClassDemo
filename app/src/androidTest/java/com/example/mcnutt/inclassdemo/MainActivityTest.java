@@ -218,4 +218,48 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void goToSimpleVolleyExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.simpleVolleyExample)).perform(scrollTo(), click());
+            intended(hasComponent(SimpleVolleyExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToMoreComplexVolleyExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.moreComplexVolleyExample)).perform(scrollTo(), click());
+            intended(hasComponent(MoreComplexVolleyExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToSimpleFirebaseExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.simpleFirebaseDBExample)).perform(scrollTo(), click());
+            intended(hasComponent(SimpleFirebaseExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToMoreComplexFirebaseDBExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.complexFirebaseDBExample)).perform(scrollTo(), click());
+            intended(hasComponent(MoreComplexFirebaseExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
