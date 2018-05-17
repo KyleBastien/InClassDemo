@@ -228,6 +228,11 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    public void goToLocationExample(View view) {
+        Intent intent = new Intent(MainActivity.this, LocationExampleActivity.class);
+        startActivity(intent);
+    }
+
     private static class SetUserTask extends AsyncTask<Void, Void, User> {
 
         private WeakReference<Activity> weakActivity;
