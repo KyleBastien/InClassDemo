@@ -7,6 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 
 import static android.support.test.espresso.Espresso.onView;
+import static android.support.test.espresso.Espresso.pressBack;
 import static android.support.test.espresso.action.ViewActions.click;
 import static android.support.test.espresso.assertion.ViewAssertions.doesNotExist;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
@@ -43,6 +44,103 @@ public class FragmentTransactionExampleActivityTest {
         onView(withId(R.id.removeFragmentB)).perform(click());
 
         onView(withId(R.id.fragmentBText)).check(doesNotExist());
+    }
+
+    @Test
+    public void canReplaceFragmentAAndB() {
+        onView(withId(R.id.replaceWithFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.replaceWithFragmentB)).perform(click());
+
+        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void canAttachAndDetachFragmentA() {
+        onView(withId(R.id.addFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.detachFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(doesNotExist());
+
+        onView(withId(R.id.attachFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void canShowHideFragmentA() {
+        onView(withId(R.id.addFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.hideFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(not(isDisplayed())));
+
+        onView(withId(R.id.showFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void canUseDummyBackButtonToGoBackInStack() {
+        onView(withId(R.id.addFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.dummyBackButtonClick)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(doesNotExist());
+    }
+
+    @Test
+    public void popAddFragAInclusiveRemovesAllAddsInlcudingFragA() {
+        onView(withId(R.id.addFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.addFragmentB)).perform(click());
+
+        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.popAddAInclusive)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(doesNotExist());
+
+        onView(withId(R.id.fragmentBText)).check(doesNotExist());
+    }
+
+    @Test
+    public void popAddFragBExclusive() {
+        onView(withId(R.id.addFragmentB)).perform(click());
+
+        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.addFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        onView(withId(R.id.popAddBExclusive)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(doesNotExist());
+
+        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
+    }
+
+    @Test
+    public void backButtonRemovesFragment() {
+        onView(withId(R.id.addFragmentA)).perform(click());
+
+        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+
+        pressBack();
+
+        onView(withId(R.id.fragmentAText)).check(doesNotExist());
     }
 
 }

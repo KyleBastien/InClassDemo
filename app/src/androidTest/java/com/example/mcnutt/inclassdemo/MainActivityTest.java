@@ -1,12 +1,20 @@
 package com.example.mcnutt.inclassdemo;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.support.test.espresso.intent.Intents;
 import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.MockitoAnnotations;
 
 import static android.support.test.espresso.Espresso.onView;
 import static android.support.test.espresso.action.ViewActions.click;
@@ -18,12 +26,34 @@ import static android.support.test.espresso.intent.matcher.IntentMatchers.hasExt
 import static android.support.test.espresso.matcher.ViewMatchers.withId;
 import static android.support.test.espresso.matcher.ViewMatchers.withText;
 import static android.support.test.espresso.assertion.ViewAssertions.matches;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.withSettings;
 
 @RunWith(AndroidJUnit4.class)
 public class MainActivityTest {
+
+    private FirebaseAuth firebaseAuth;
+
+    private FirebaseUser firebaseUser;
+
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule
-            = new ActivityTestRule<>(MainActivity.class);
+            = new ActivityTestRule<>(MainActivity.class, true, false);
+
+    @Before
+    public void init() {
+        firebaseAuth = mock(FirebaseAuth.class);
+        firebaseUser = mock(FirebaseUser.class);
+
+        FirebaseAuthGetter.setFirebaseAuth(firebaseAuth);
+        when(firebaseAuth.getCurrentUser()).thenReturn(firebaseUser);
+        when(firebaseUser.getDisplayName()).thenReturn("Kyle");
+        when(firebaseUser.getPhotoUrl()).thenReturn(Uri.parse("https://i.imgur.com/kobQVOD.jpg"));
+
+        Intent intent = new Intent();
+        activityTestRule.launchActivity(intent);
+    }
 
     @Test
     public void canEnterNameAndLoginWithRotate() {
@@ -150,6 +180,83 @@ public class MainActivityTest {
             Intents.init();
             onView(withId(R.id.fragmentDataPassingExampleBtn)).perform(scrollTo(), click());
             intended(hasComponent(FragmentDataPassingActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFragmentToActivityExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentToActivityDataExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(FragmentToActivityDataPassingExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToInterFragmentDataExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentToFragmentDataExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ActivityInterFragmentCommunication.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void canGoToFragmentScreenRotationExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.fragmentScreenRotationExampleBtn)).perform(scrollTo(), click());
+            intended(hasComponent(ActivityScreenRotationExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToSimpleVolleyExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.simpleVolleyExample)).perform(scrollTo(), click());
+            intended(hasComponent(SimpleVolleyExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToMoreComplexVolleyExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.moreComplexVolleyExample)).perform(scrollTo(), click());
+            intended(hasComponent(MoreComplexVolleyExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToSimpleFirebaseExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.simpleFirebaseDBExample)).perform(scrollTo(), click());
+            intended(hasComponent(SimpleFirebaseExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToMoreComplexFirebaseDBExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.complexFirebaseDBExample)).perform(scrollTo(), click());
+            intended(hasComponent(MoreComplexFirebaseExample.class.getName()));
         } finally {
             Intents.release();
         }

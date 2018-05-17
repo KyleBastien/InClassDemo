@@ -37,7 +37,8 @@ task jacocoTestReport(type : JacocoReport, dependsOn : 'testDebugUnitTest') {
             '**/*Module_Provide*Factory.*',
             '**/*_Factory.*',
             '**/*_MembersInjector.*',
-            '**/*_LifecycleAdapter.*'
+            '**/*_LifecycleAdapter.*',
+            '**/models/**'
         ]
     )
 

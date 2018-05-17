@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity  {
         userPhoto = findViewById(R.id.userPhoto);
 
         // Initialize Firebase Auth
-        mFirebaseAuth = FirebaseAuth.getInstance();
+        mFirebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
         mFirebaseUser = mFirebaseAuth.getCurrentUser();
         if (mFirebaseUser == null) {
             // Not signed in, launch the Sign In activity
