@@ -263,4 +263,15 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void goToRoomPersistenceExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.roomPersistenceExample)).perform(scrollTo(), click());
+            intended(hasComponent(RoomPersistenceExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }

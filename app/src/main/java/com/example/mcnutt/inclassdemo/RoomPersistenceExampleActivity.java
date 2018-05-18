@@ -48,8 +48,12 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
         User currentUser = new User();
         currentUser.setEmail(this.email.getText().toString());
         currentUser.setPhotoUrl(this.photoUrl.getText().toString());
+        String[] name = this.displayName.getText().toString().split(" ");
         currentUser.setFirstName(this.displayName.getText().toString().split(" ")[0]);
-        currentUser.setLastName(this.displayName.getText().toString().split(" ")[1]);
+        if(name.length > 1) {
+            currentUser.setLastName(this.displayName.getText().toString().split(" ")[1]);
+        }
+
 
         new DeleteUserTask(this, currentUser).execute();
     }
@@ -149,7 +153,7 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
 
             List<User> users = db.userDao().loadAllByIds(emails);
 
-            if(users.get(0) == null) {
+            if(users.size() <= 0 || users.get(0) == null) {
                 return null;
             }
             return users.get(0);
