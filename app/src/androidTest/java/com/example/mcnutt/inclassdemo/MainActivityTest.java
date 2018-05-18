@@ -48,8 +48,9 @@ public class MainActivityTest {
 
         FirebaseAuthGetter.setFirebaseAuth(firebaseAuth);
         when(firebaseAuth.getCurrentUser()).thenReturn(firebaseUser);
-        when(firebaseUser.getDisplayName()).thenReturn("Kyle");
+        when(firebaseUser.getDisplayName()).thenReturn("Kyle Guy");
         when(firebaseUser.getPhotoUrl()).thenReturn(Uri.parse("https://i.imgur.com/kobQVOD.jpg"));
+        when(firebaseUser.getEmail()).thenReturn("foo@google.com");
 
         Intent intent = new Intent();
         activityTestRule.launchActivity(intent);
