@@ -48,8 +48,9 @@ public class MainActivityTest {
 
         FirebaseAuthGetter.setFirebaseAuth(firebaseAuth);
         when(firebaseAuth.getCurrentUser()).thenReturn(firebaseUser);
-        when(firebaseUser.getDisplayName()).thenReturn("Kyle");
-        when(firebaseUser.getPhotoUrl()).thenReturn(Uri.parse("https://i.imgur.com/kobQVOD.jpg"));
+        when(firebaseUser.getDisplayName()).thenReturn("Kyle Guy");
+        when(firebaseUser.getPhotoUrl()).thenReturn(Uri.parse("https://image.flaticon.com/icons/png/128/149/149452.png"));
+        when(firebaseUser.getEmail()).thenReturn("foo@google.com");
 
         Intent intent = new Intent();
         activityTestRule.launchActivity(intent);
@@ -257,6 +258,17 @@ public class MainActivityTest {
             Intents.init();
             onView(withId(R.id.complexFirebaseDBExample)).perform(scrollTo(), click());
             intended(hasComponent(MoreComplexFirebaseExample.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
+    @Test
+    public void goToRoomPersistenceExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.roomPersistenceExample)).perform(scrollTo(), click());
+            intended(hasComponent(RoomPersistenceExampleActivity.class.getName()));
         } finally {
             Intents.release();
         }
