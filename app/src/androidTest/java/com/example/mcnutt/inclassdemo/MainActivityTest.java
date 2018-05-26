@@ -274,4 +274,15 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void goToLocationExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.locationExample)).perform(scrollTo(), click());
+            intended(hasComponent(LocationExampleActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
