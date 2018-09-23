@@ -8,23 +8,23 @@ import com.example.mcnutt.inclassdemo.viewmodels.FirebaseHelloWorldViewModel;
 
 public class SimpleFirebaseExample extends AppCompatActivity {
 
-    private FirebaseHelloWorldViewModel viewModel;
+    private FirebaseHelloWorldViewModel vm;
     private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_firebase_example);
-        viewModel = new FirebaseHelloWorldViewModel();
+        vm = new FirebaseHelloWorldViewModel();
 
         textView = findViewById(R.id.helloWorldFirebase);
 
-        viewModel.getHelloWorld((response) -> textView.setText(response));
+        vm.getHelloWorld((response) -> textView.setText(response));
     }
 
     @Override
     protected void onPause() {
-        viewModel.clear();
+        vm.clear();
         super.onPause();
     }
 }
