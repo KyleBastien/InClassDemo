@@ -60,7 +60,7 @@ references:
   gcloud_config: &gcloud_config
     working_directory: *workspace
     docker:
-      - image: google/cloud-sdk:latest
+      - image: google/cloud-sdk:206.0.0
     environment:
       TERM: dumb
 
@@ -174,9 +174,6 @@ jobs:
       - run:
           name: Echo sha1 variable for debugging
           command: echo ${CIRCLE_SHA1}
-      - run:
-          name: Updating to 187 to see if this fixes typeerror issue
-          command: gcloud components update --version 187.0.0
       - run:
           name: Run instrumented test on Firebase Test Lab
           command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus6P,version=27,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/coverage.ec --directories-to-pull=/sdcard --timeout 20m --results-dir=${CIRCLE_SHA1}
