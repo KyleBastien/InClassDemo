@@ -289,9 +289,4 @@ public class MainActivityTest {
         }
     }
 
-    @Test
-    public void relaunchActivityTest() {
-        mainActivityControlledActivityTestRule.relaunchActivity();
-    }
-
 }
