@@ -143,4 +143,11 @@ public class FragmentTransactionExampleActivityTest {
         onView(withId(R.id.fragmentAText)).check(doesNotExist());
     }
 
+    @Test
+    public void canPressBackImmedietly() {
+        try {
+            pressBack();
+        } catch(Exception e) {}
+    }
+
 }

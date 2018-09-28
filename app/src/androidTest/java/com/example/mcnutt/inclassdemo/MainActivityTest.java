@@ -41,6 +41,10 @@ public class MainActivityTest {
     public ActivityTestRule<MainActivity> activityTestRule
             = new ActivityTestRule<>(MainActivity.class, true, false);
 
+    @Rule
+    public ControlledActivityTestRule<MainActivity> mainActivityControlledActivityTestRule
+            = new ControlledActivityTestRule<>(MainActivity.class);
+
     @Before
     public void init() {
         firebaseAuth = mock(FirebaseAuth.class);
