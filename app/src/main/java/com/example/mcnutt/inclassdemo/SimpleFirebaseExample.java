@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.example.mcnutt.inclassdemo.models.OnGetDataListener;
 import com.example.mcnutt.inclassdemo.viewmodels.FirebaseHelloWorldViewModel;
 
 public class SimpleFirebaseExample extends AppCompatActivity {
@@ -19,7 +20,17 @@ public class SimpleFirebaseExample extends AppCompatActivity {
 
         textView = findViewById(R.id.helloWorldFirebase);
 
-        vm.getHelloWorld((response) -> textView.setText(response));
+        vm.getHelloWorld(new OnGetDataListener<String>() {
+            @Override
+            public void onSuccess(String dataResponse) {
+                textView.setText(dataResponse);
+            }
+
+            @Override
+            public void onFailure() {
+                System.out.println("Looks like some error happened when we tried to get helloWorld");
+            }
+        });
     }
 
     @Override
