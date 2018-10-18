@@ -26,8 +26,8 @@ public class FirebaseHelloWorldModel {
         DatabaseReference helloWorldRef = mDatabase.child("helloWorld");
         ValueEventListener helloWorldListener = new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                dataChangedCallback.accept(dataSnapshot);
+            public void onDataChange(DataSnapshot helloWorldSnapshot) {
+                dataChangedCallback.accept(helloWorldSnapshot);
             }
 
             @Override
