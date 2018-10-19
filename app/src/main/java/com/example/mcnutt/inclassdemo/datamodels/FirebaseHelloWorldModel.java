@@ -21,22 +21,11 @@ public class FirebaseHelloWorldModel {
         listeners = new HashMap<>();
     }
 
-    public void getHelloWorld(Consumer<DataSnapshot> dataChangedCallback, Consumer<DatabaseError> dataErrorCallback) {
+    public void getHelloWorld(ValueEventListener viewModelCallback) {
         // This is where we can construct our path
         DatabaseReference helloWorldRef = mDatabase.child("helloWorld");
-        ValueEventListener helloWorldListener = new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot helloWorldSnapshot) {
-                dataChangedCallback.accept(helloWorldSnapshot);
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                dataErrorCallback.accept(databaseError);
-            }
-        };
-        helloWorldRef.addValueEventListener(helloWorldListener);
-        listeners.put(helloWorldRef, helloWorldListener);
+        helloWorldRef.addValueEventListener(viewModelCallback);
+        listeners.put(helloWorldRef, viewModelCallback);
     }
 
     public void clear() {
