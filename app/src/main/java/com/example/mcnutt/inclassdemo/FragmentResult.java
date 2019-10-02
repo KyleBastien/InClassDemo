@@ -25,7 +25,7 @@ public class FragmentResult extends Fragment {
     }
 
     public void addTwoNumbers(int num1, int num2) {
-        int result = num1 + num2;
+        int result = num1 + num2 + num1;
         textViewResult.setText(String.format(getString(R.string.result_prompt), result));
     }
 }
