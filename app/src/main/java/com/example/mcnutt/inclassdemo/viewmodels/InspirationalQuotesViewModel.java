@@ -29,7 +29,7 @@ public class InspirationalQuotesViewModel {
                 try {
                     object = jsonArray.getJSONObject(0);
                     InspirationalQuote quote = gson.fromJson(object.toString(), InspirationalQuote.class);
-                    resultCallback.accept(quote.getContent());
+                    resultCallback.accept(quote.getContent().getRendered());
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
