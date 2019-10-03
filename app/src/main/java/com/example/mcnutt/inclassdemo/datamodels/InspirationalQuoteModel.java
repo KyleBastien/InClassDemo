@@ -14,7 +14,7 @@ import org.json.JSONArray;
 
 public class InspirationalQuoteModel {
 
-    private final String inspirationalQuoteBaseUrl = "http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1";
+    private final String inspirationalQuoteBaseUrl = "https://quotesondesign.com/wp-json/wp/v2/posts/?orderby=rand";
     private RequestQueue queue;
 
     public InspirationalQuoteModel(Context context) {
