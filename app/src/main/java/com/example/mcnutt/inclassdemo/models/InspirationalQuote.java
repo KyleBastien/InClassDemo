@@ -1,9 +1,33 @@
 package com.example.mcnutt.inclassdemo.models;
 
+public class InspirationalQuoteTitle {
+  private String rendered;
+
+  public String getRendered() {
+    return rendered;
+  }
+
+  public void setRendered(String rendered) {
+    this.rendered = rendered;
+  }
+}
+
+public class InspirationalQuoteContent {
+  private String rendered;
+
+  public String getRendered() {
+    return rendered;
+  }
+
+  public void setRendered(String rendered) {
+    this.rendered = rendered;
+  }
+}
+
 public class InspirationalQuote {
     private String ID;
-    private String title;
-    private String content;
+    private InspirationalQuoteTitle title;
+    private InspirationalQuoteContent content;
     private String link;
 
     public String getID() {
@@ -14,19 +38,19 @@ public class InspirationalQuote {
         this.ID = ID;
     }
 
-    public String getTitle() {
+    public InspirationalQuoteTitle getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(InspirationalQuoteTitle title) {
         this.title = title;
     }
 
-    public String getContent() {
+    public InspirationalQuoteContent getContent() {
         return content;
     }
 
-    public void setContent(String content) {
+    public void setContent(InspirationalQuoteContent content) {
         this.content = content;
     }
 
