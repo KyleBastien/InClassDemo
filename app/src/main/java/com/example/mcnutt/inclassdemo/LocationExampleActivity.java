@@ -1,10 +1,10 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.location.LocationManager;
 import android.content.Context;
-import android.support.v7.app.AlertDialog;
+import androidx.appcompat.app.AlertDialog;
 import android.provider.Settings;
 import android.content.Intent;
 import android.widget.Button;
@@ -14,7 +14,7 @@ import android.location.LocationListener;
 import android.location.Location;
 import android.widget.TextView;
 import android.content.pm.PackageManager;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 
 public class LocationExampleActivity extends AppCompatActivity {
 

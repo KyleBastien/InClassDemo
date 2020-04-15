@@ -21,7 +21,7 @@ task jacocoTestReport(type : JacocoReport, dependsOn : ['testDebugUnitTest']) {
     }
 
     classDirectories = fileTree(
-        dir      : 'build/intermediates/classes/debug',
+        dir      : 'build/intermediates/javac/debug/classes/com/example',
         excludes : [
             '**/R.class',
             '**/R$*.class',
@@ -45,11 +45,11 @@ task jacocoTestReport(type : JacocoReport, dependsOn : ['testDebugUnitTest']) {
     sourceDirectories = files(coverageSourceDirs)
     executionData     = fileTree(
         dir     : "$buildDir",
-        include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec' ]
+        include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/*coverage.ec' ]
     )
 
     doFirst {
-        files('build/intermediates/classes/debug').getFiles().each { file ->
+        files('build/intermediates/javac/debug/classes/com/example').getFiles().each { file ->
             if (file.name.contains('$$')) {
                 file.renameTo(file.path.replace('$$', '$'))
             }
@@ -67,7 +67,7 @@ task jacocoTestReportLocal(type : JacocoReport, dependsOn : ['testDebugUnitTest'
     }
 
     classDirectories = fileTree(
-            dir      : 'build/intermediates/classes/debug',
+            dir      : 'build/intermediates/javac/debug/classes/com/example',
             excludes : [
                     '**/R.class',
                     '**/R$*.class',
@@ -91,11 +91,11 @@ task jacocoTestReportLocal(type : JacocoReport, dependsOn : ['testDebugUnitTest'
     sourceDirectories = files(coverageSourceDirs)
     executionData     = fileTree(
             dir     : "$buildDir",
-            include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec' ]
+            include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/*coverage.ec' ]
     )
 
     doFirst {
-        files('build/intermediates/classes/debug').getFiles().each { file ->
+        files('build/intermediates/javac/debug/classes/com/example').getFiles().each { file ->
             if (file.name.contains('$$')) {
                 file.renameTo(file.path.replace('$$', '$'))
             }

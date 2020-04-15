@@ -3,7 +3,9 @@ package com.example.mcnutt.inclassdemo;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,12 +29,6 @@ public class MainActivity extends AppCompatActivity  {
     private Button loginBtn;
     private EditText editText;
     private TextView textView;
-    private TextView userName;
-    private ImageView userPhoto;
-
-    // Firebase instance variables
-    private FirebaseAuth mFirebaseAuth;
-    private FirebaseUser mFirebaseUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,12 +38,13 @@ public class MainActivity extends AppCompatActivity  {
         loginBtn = findViewById(R.id.loginBtn);
         editText = findViewById(R.id.nameEditText);
         textView = findViewById(R.id.textView);
-        userName = findViewById(R.id.userName);
-        userPhoto = findViewById(R.id.userPhoto);
+        TextView userName = findViewById(R.id.userName);
+        ImageView userPhoto = findViewById(R.id.userPhoto);
 
         // Initialize Firebase Auth
-        mFirebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
-        mFirebaseUser = mFirebaseAuth.getCurrentUser();
+        // Firebase instance variables
+        FirebaseAuth mFirebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
+        FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
         if (mFirebaseUser == null) {
             // Not signed in, launch the Sign In activity
             startActivity(new Intent(this, SignInActivity.class));
@@ -97,7 +94,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
 
         Log.i(TAG, "onRestoreInstanceState()");
@@ -111,7 +108,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         Log.i(TAG, "onSaveInstanceState()");
@@ -238,7 +235,7 @@ public class MainActivity extends AppCompatActivity  {
         private WeakReference<Activity> weakActivity;
         private User user;
 
-        public SetUserTask(Activity activity, User user) {
+        SetUserTask(Activity activity, User user) {
             weakActivity = new WeakReference<>(activity);
             this.user = user;
         }

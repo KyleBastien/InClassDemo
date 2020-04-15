@@ -1,7 +1,7 @@
 package com.example.mcnutt.inclassdemo;
 
 import android.app.Activity;
-import android.support.test.rule.ActivityTestRule;
+import androidx.test.rule.ActivityTestRule;
 
 public class ControlledActivityTestRule<T extends Activity> extends ActivityTestRule<T> {
     public ControlledActivityTestRule(Class<T> activityClass) {

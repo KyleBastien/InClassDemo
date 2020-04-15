@@ -1,7 +1,7 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.arch.persistence.room.Database;
-import android.arch.persistence.room.RoomDatabase;
+import androidx.room.Database;
+import androidx.room.RoomDatabase;
 
 import com.example.mcnutt.inclassdemo.dao.UserDao;
 import com.example.mcnutt.inclassdemo.entity.User;

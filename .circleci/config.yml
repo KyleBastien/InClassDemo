@@ -4,7 +4,7 @@ references:
   ## Cache
 
   cache_key: &cache_key
-    key: cache-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}
+    key: cache-{{ checksum "gradle/wrapper/gradle-wrapper.properties" }}-{{ checksum "build.gradle" }}-{{ checksum "app/build.gradle" }}--{{ checksum ".circleci/config.yml" }}
   restore_cache: &restore_cache
     restore_cache:
       <<: *cache_key
@@ -31,7 +31,7 @@ references:
       paths:
         - app/build/outputs/androidTest-results
         - app/build/outputs/apk
-        - app/build/outputs/code-coverage
+        - app/build/outputs/code_coverage
         - app/build/test-results
   persist_release_workspace: &persist_release_workspace
     persist_to_workspace:
@@ -52,7 +52,7 @@ references:
   android_config: &android_config
     working_directory: *workspace
     docker:
-      - image: circleci/android:api-27-alpha
+      - image: circleci/android:api-29
     environment:
       TERM: dumb
       _JAVA_OPTIONS: "-Xmx2048m -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap"
@@ -176,7 +176,7 @@ jobs:
           command: echo ${CIRCLE_SHA1}
       - run:
           name: Run instrumented test on Firebase Test Lab
-          command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Nexus6P,version=27,locale=en_US,orientation=portrait --environment-variables coverage=true,coverageFile=/sdcard/coverage.ec --directories-to-pull=/sdcard --timeout 20m --results-dir=${CIRCLE_SHA1}
+          command: gcloud firebase test android run --type instrumentation --app app/build/outputs/apk/debug/app-debug.apk --test app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk --device model=Pixel2,version=29,locale=en_US,orientation=portrait --no-use-orchestrator --environment-variables coverage=true,coverageFile="/sdcard/coverage.ec" --directories-to-pull=/sdcard --timeout 20m --results-dir=${CIRCLE_SHA1}
       - run:
           name: Create directory to store test results
           command: mkdir firebase
@@ -202,7 +202,7 @@ jobs:
       - *attach_firebase_workspace
       - run:
           name: Move Firebase coverage report
-          command: mkdir -p app/build/outputs/code-coverage/connected && cp firebase/${CIRCLE_SHA1}/Nexus6P-27-en_US-portrait/artifacts/coverage.ec app/build/outputs/code-coverage/connected/coverage.ec
+          command: mkdir -p app/build/outputs/code_coverage/debugAndroidTest/connected && cp firebase/${CIRCLE_SHA1}/Pixel2-29-en_US-portrait/artifacts/coverage.ec app/build/outputs/code_coverage/debugAndroidTest/connected/coverage.ec
       - *export_gservices_key
       - *decode_gservices_key
       - run:
