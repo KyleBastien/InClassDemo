@@ -97,4 +97,15 @@
     <string name="resume">Resume</string>
     <string name="network_provider_started_running">Network provider started running</string>
     <string name="network_provider_update">Network Provider update</string>
+    <string name="hello_class">Hello Class!</string>
+    <string name="go_to_click_example">Go To Click Example</string>
+    <string name="example_user_name">Example Person</string>
+    <string name="example_user_email">exampleperson@example</string>
+    <string name="example_user_first_name">Example</string>
+    <string name="example_user_last_name">Person</string>
+    <string name="example_user_photo">http://placekitten.com/200/300</string>
+    <string name="second_activity">Second Activity</string>
+    <string name="some_text">Some text</string>
+    <string name="jk_text_view">JK I want the text to be this</string>
+    <string name="jk_button_text">JK I want the Button to have this text</string>
 </resources>

@@ -286,4 +286,15 @@ public class MainActivityTest {
         }
     }
 
+    @Test
+    public void goToClickExample() {
+        try {
+            Intents.init();
+            onView(withId(R.id.clickDemoExample)).perform(scrollTo(), click());
+            intended(hasComponent(ClickDemoActivity.class.getName()));
+        } finally {
+            Intents.release();
+        }
+    }
+
 }
