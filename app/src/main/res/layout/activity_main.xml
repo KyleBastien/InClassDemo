@@ -225,6 +225,15 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 
+        <Button
+            android:id="@+id/clickDemoExample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_click_example"
+            android:onClick="goToClickExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"

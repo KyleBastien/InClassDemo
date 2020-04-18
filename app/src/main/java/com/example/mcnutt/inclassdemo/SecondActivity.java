@@ -22,19 +22,24 @@ public class SecondActivity extends AppCompatActivity {
         Intent intent = getIntent();
         Bundle b = intent.getExtras();
 
-        assert b != null;
-        if (b.containsKey(Constants.KEY_NAME)) {
-            String name = b.getString(Constants.KEY_NAME);
-            msg.append(name).append("\n");
-            Log.i(TAG, "Name: " + name);
+        String name = "Example name";
+        int age = 30;
+
+        if (b != null) {
+            if (b.containsKey(Constants.KEY_NAME)) {
+                name = b.getString(Constants.KEY_NAME);
+            }
+
+            if (b.containsKey(Constants.KEY_AGE)) {
+                age = b.getInt(Constants.KEY_AGE);
+            }
         }
 
+        msg.append(name).append("\n");
+        Log.i(TAG, new StringBuilder("Name: ").append(name).toString());
 
-        if (b.containsKey(Constants.KEY_AGE)) {
-            int age = b.getInt(Constants.KEY_AGE);
-            msg.append(age).append(" years old");
-            Log.i(TAG, "Age: " + age);
-        }
+        msg.append(age).append(" years old");
+        Log.i(TAG, new StringBuilder("Age: ").append(age).toString());
 
         textView.setText(msg);
 

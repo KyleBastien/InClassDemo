@@ -15,8 +15,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mcnutt.inclassdemo.entity.User;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
@@ -41,29 +39,18 @@ public class MainActivity extends AppCompatActivity  {
         TextView userName = findViewById(R.id.userName);
         ImageView userPhoto = findViewById(R.id.userPhoto);
 
-        // Initialize Firebase Auth
-        // Firebase instance variables
-        FirebaseAuth mFirebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
-        FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
-        if (mFirebaseUser == null) {
-            // Not signed in, launch the Sign In activity
-            startActivity(new Intent(this, SignInActivity.class));
-            finish();
-            return;
-        } else {
-            userName.setText(mFirebaseUser.getDisplayName());
+        userName.setText(getString(R.string.example_user_name));
 
-            User user = new User();
-            user.setEmail(Objects.requireNonNull(mFirebaseUser.getEmail()));
-            user.setFirstName(Objects.requireNonNull(mFirebaseUser.getDisplayName()).split(" ")[0]);
-            user.setLastName(Objects.requireNonNull(mFirebaseUser.getDisplayName()).split(" ")[1]);
-            user.setPhotoUrl(Objects.requireNonNull(mFirebaseUser.getPhotoUrl()).toString());
+        User user = new User();
+        user.setEmail(Objects.requireNonNull(getString(R.string.example_user_email)));
+        user.setFirstName(Objects.requireNonNull(getString(R.string.example_user_first_name)));
+        user.setLastName(Objects.requireNonNull(getString(R.string.example_user_last_name)));
+        user.setPhotoUrl(Objects.requireNonNull(getString(R.string.example_user_photo)));
 
-            new SetUserTask(this, user).execute();
+        new SetUserTask(this, user).execute();
 
-            if (mFirebaseUser.getPhotoUrl() != null) {
-                Picasso.get().load(mFirebaseUser.getPhotoUrl().toString()).into(userPhoto);
-            }
+        if (user.getPhotoUrl() != null) {
+            Picasso.get().load(user.getPhotoUrl()).into(userPhoto);
         }
 
         Log.i(TAG, "onCreate()");
@@ -227,6 +214,11 @@ public class MainActivity extends AppCompatActivity  {
 
     public void goToLocationExample(View view) {
         Intent intent = new Intent(MainActivity.this, LocationExampleActivity.class);
+        startActivity(intent);
+    }
+
+    public void goToClickExample(View view) {
+        Intent intent = new Intent(MainActivity.this, ClickDemoActivity.class);
         startActivity(intent);
     }
 
