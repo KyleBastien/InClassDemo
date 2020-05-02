@@ -1,8 +1,9 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.util.Log;
 
@@ -16,7 +17,7 @@ public class FragmentExampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_fragment_example);
 
         HelloFragment helloFragment = new HelloFragment();
-        FragmentManager manager = getFragmentManager();
+        FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.frameLayout, helloFragment, "helloFragment");
         transaction.commit();

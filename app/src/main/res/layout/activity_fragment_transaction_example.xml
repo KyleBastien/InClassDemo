@@ -82,6 +82,27 @@
             android:onClick="detachFragmentA"/>
 
         <Button
+            android:id="@+id/attachFragmentB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/attach_b"
+            android:onClick="attachFragmentB"/>
+
+        <Button
+            android:id="@+id/detachFragmentB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/detach_b"
+            android:onClick="detachFragmentB"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
             android:id="@+id/showFragmentA"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -94,13 +115,6 @@
             android:layout_height="wrap_content"
             android:text="@string/hide_a"
             android:onClick="hideFragmentA"/>
-
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <Button
             android:id="@+id/dummyBackButtonClick"

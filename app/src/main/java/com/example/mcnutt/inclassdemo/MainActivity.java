@@ -222,6 +222,16 @@ public class MainActivity extends AppCompatActivity  {
         startActivity(intent);
     }
 
+    public void goToGravityExample(View view) {
+        Intent intent = new Intent(MainActivity.this, GravityExample.class);
+        startActivity(intent);
+    }
+
+    public void goToConstraintLayoutExample(View view) {
+        Intent intent = new Intent(MainActivity.this, ConstraintActivityExample.class);
+        startActivity(intent);
+    }
+
     private static class SetUserTask extends AsyncTask<Void, Void, User> {
 
         private WeakReference<Activity> weakActivity;

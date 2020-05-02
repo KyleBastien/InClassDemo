@@ -18,14 +18,14 @@
         android:layout_height="wrap_content"
         android:text="@string/ok"
         android:layout_below="@+id/enterText"
-        android:layout_alignParentEnd="true"/>
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:id="@+id/cancelBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/enterText"
         android:text="@string/cancel"
-        android:layout_toStartOf="@+id/okBtn"/>
+        android:layout_below="@+id/enterText"
+        android:layout_toStartOf="@+id/okBtn" />
 
 </RelativeLayout>

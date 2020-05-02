@@ -108,4 +108,9 @@
     <string name="some_text">Some text</string>
     <string name="jk_text_view">JK I want the text to be this</string>
     <string name="jk_button_text">JK I want the Button to have this text</string>
+    <string name="button3">Button3</string>
+    <string name="go_to_gravity_example">Go to Gravity Example</string>
+    <string name="go_to_constraint_layout_example">Go to Constraint Layout Example</string>
+    <string name="attach_b">Attach B</string>
+    <string name="detach_b">Detach B</string>
 </resources>

@@ -1,9 +1,10 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -18,7 +19,7 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity implem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_transaction_example);
-        manager = getFragmentManager();
+        manager = getSupportFragmentManager();
         manager.addOnBackStackChangedListener(this);
     }
 
@@ -145,6 +146,26 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity implem
             manager.popBackStack();
         } else {
             super.onBackPressed();
+        }
+    }
+
+    public void attachFragmentB(View view) {
+        FragmentB fragmentB = (FragmentB) manager.findFragmentByTag("fragB");
+        if (fragmentB != null) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.attach(fragmentB);
+            transaction.addToBackStack("AttachFragB");
+            transaction.commit();
+        }
+    }
+
+    public void detachFragmentB(View view) {
+        FragmentB fragmentB = (FragmentB) manager.findFragmentByTag("fragB");
+        if (fragmentB != null) {
+            FragmentTransaction transaction = manager.beginTransaction();
+            transaction.detach(fragmentB);
+            transaction.addToBackStack("DetachFragB");
+            transaction.commit();
         }
     }
 }
