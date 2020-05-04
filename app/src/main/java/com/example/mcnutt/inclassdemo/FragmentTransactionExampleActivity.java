@@ -75,26 +75,6 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity implem
         transaction.commit();
     }
 
-    public void attachFragmentA(View view) {
-        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
-        if (fragmentA != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.attach(fragmentA);
-            transaction.addToBackStack("AttachFragA");
-            transaction.commit();
-        }
-    }
-
-    public void detachFragmentA(View view) {
-        FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
-        if (fragmentA != null) {
-            FragmentTransaction transaction = manager.beginTransaction();
-            transaction.detach(fragmentA);
-            transaction.addToBackStack("DetachFragA");
-            transaction.commit();
-        }
-    }
-
     public void showFragmentA(View view) {
         FragmentA fragmentA = (FragmentA) manager.findFragmentByTag("fragA");
         if (fragmentA != null) {

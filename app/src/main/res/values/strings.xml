@@ -49,8 +49,8 @@
     <string name="fragment_a">Fragment A</string>
     <string name="replace_by_a">Replace by \'A\'</string>
     <string name="replace_by_b">Replace by \'B\'</string>
-    <string name="attach_a">Attach A</string>
-    <string name="detach_a">Detach A</string>
+    <string name="attach_b">Attach B</string>
+    <string name="detach_b">Detach B</string>
     <string name="show_a">Show A</string>
     <string name="hide_a">Hide A</string>
     <string name="send_data_to_fragment">Send Data to Fragment</string>
@@ -111,6 +111,4 @@
     <string name="button3">Button3</string>
     <string name="go_to_gravity_example">Go to Gravity Example</string>
     <string name="go_to_constraint_layout_example">Go to Constraint Layout Example</string>
-    <string name="attach_b">Attach B</string>
-    <string name="detach_b">Detach B</string>
 </resources>
