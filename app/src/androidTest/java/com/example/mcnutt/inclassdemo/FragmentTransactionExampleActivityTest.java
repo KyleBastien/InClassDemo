@@ -56,17 +56,17 @@ public class FragmentTransactionExampleActivityTest {
 
     @Test
     public void canAttachAndDetachFragmentA() {
-        onView(withId(R.id.addFragmentA)).perform(click());
+        onView(withId(R.id.addFragmentB)).perform(click());
 
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
 
-        onView(withId(R.id.detachFragmentA)).perform(click());
+        onView(withId(R.id.detachFragmentB)).perform(click());
 
-        onView(withId(R.id.fragmentAText)).check(doesNotExist());
+        onView(withId(R.id.fragmentBText)).check(doesNotExist());
 
-        onView(withId(R.id.attachFragmentA)).perform(click());
+        onView(withId(R.id.attachFragmentB)).perform(click());
 
-        onView(withId(R.id.fragmentAText)).check(matches(isDisplayed()));
+        onView(withId(R.id.fragmentBText)).check(matches(isDisplayed()));
     }
 
     @Test
