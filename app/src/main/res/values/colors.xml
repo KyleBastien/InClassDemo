@@ -6,4 +6,5 @@
     <color name="blue">#9cf</color>
     <color name="yellow">#FF0</color>
     <color name="red">#F00</color>
+    <color name="background_hello_fragment">#ffea00</color>
 </resources>

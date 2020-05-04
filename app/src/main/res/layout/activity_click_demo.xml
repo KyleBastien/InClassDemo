@@ -13,11 +13,12 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="29dp"
+                android:layout_marginStart="@dimen/textview_marginstart"
                 android:layout_marginBottom="81dp"
                 android:text="@string/app_name"
                 app:layout_constraintBottom_toTopOf="@+id/goToSecondActivity"
-                app:layout_constraintStart_toStartOf="@+id/goToSecondActivity" />
+                app:layout_constraintStart_toStartOf="@+id/goToSecondActivity"
+                android:background="@color/blue" />
 
             <Button
                 android:id="@+id/goToSecondActivity"

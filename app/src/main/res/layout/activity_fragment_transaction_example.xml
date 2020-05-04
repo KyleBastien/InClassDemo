@@ -68,18 +68,18 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/attachFragmentA"
+            android:id="@+id/attachFragmentB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/attach_a"
-            android:onClick="attachFragmentA"/>
+            android:text="@string/attach_b"
+            android:onClick="attachFragmentB"/>
 
         <Button
-            android:id="@+id/detachFragmentA"
+            android:id="@+id/detachFragmentB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/detach_a"
-            android:onClick="detachFragmentA"/>
+            android:text="@string/detach_b"
+            android:onClick="detachFragmentB"/>
 
         <Button
             android:id="@+id/showFragmentA"

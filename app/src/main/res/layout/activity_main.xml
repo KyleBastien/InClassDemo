@@ -64,6 +64,15 @@
             android:layout_marginBottom="@dimen/activity_margin"/>
 
         <Button
+            android:id="@+id/gravityExamplebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_gravity_example"
+            android:onClick="goToGravityExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
             android:id="@+id/weightExampleBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -114,6 +123,15 @@
             android:layout_height="wrap_content"
             android:text="@string/go_to_relative_alignment_example"
             android:onClick="goToRelativeAlignmentExample"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
+        <Button
+            android:id="@+id/constraintLayoutExample"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/go_to_constraint_layout_example"
+            android:onClick="goToConstraintLayoutExample"
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 

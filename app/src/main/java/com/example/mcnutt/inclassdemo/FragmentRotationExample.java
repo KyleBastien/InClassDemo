@@ -1,9 +1,12 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +24,7 @@ public class FragmentRotationExample extends Fragment {
     private int score;
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         Log.i(TAG, "onAttach()");
     }
@@ -50,15 +53,12 @@ public class FragmentRotationExample extends Fragment {
             textView.setText(savedInstanceState.getString(Constants.KEY_TEXTVIEW_TEXT, getString(R.string.fragment_a)));
         }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                textView.setText(R.string.dummy_text);
-                button.setText(R.string.Logout);
+        button.setOnClickListener(view1 -> {
+            textView.setText(R.string.dummy_text);
+            button.setText(R.string.Logout);
 
-                score = 47;
-                Toast.makeText(getActivity(), String.format(getString(R.string.score_value), score), Toast.LENGTH_LONG).show();
-            }
+            score = 47;
+            Toast.makeText(getActivity(), String.format(getString(R.string.score_value), score), Toast.LENGTH_LONG).show();
         });
         return view;
     }
@@ -88,7 +88,7 @@ public class FragmentRotationExample extends Fragment {
     }
 
     @Override
-    public void onSaveInstanceState(Bundle outState) {
+    public void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
 
         outState.putInt(Constants.KEY_SCORE, score);

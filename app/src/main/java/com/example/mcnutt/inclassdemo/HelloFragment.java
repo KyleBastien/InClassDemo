@@ -1,9 +1,12 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +17,7 @@ public class HelloFragment extends Fragment {
     private static final String TAG = HelloFragment.class.getSimpleName();
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         Log.i(TAG, "onAttach()");
     }
