@@ -1,9 +1,14 @@
 package com.example.mcnutt.inclassdemo;
 
+import android.content.Context;
+import android.content.Intent;
+
 import androidx.test.espresso.NoMatchingViewException;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.platform.app.InstrumentationRegistry;
 import androidx.test.rule.ActivityTestRule;
 
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -20,7 +25,7 @@ public class ClickDemoActivityTest {
 
     @Rule
     public ActivityTestRule<ClickDemoActivity> activityTestRule
-            = new ActivityTestRule<>(ClickDemoActivity.class, true, true);
+            = new ActivityTestRule<>(ClickDemoActivity.class, true, false);
 
     @Test
     public void goToSecondActivity() {

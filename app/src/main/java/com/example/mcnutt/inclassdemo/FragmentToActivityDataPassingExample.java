@@ -1,14 +1,13 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.widget.TextView;
 
 public class FragmentToActivityDataPassingExample extends AppCompatActivity implements MyListener {
-
-    private static final String TAG = FragmentToActivityDataPassingExample.class.getSimpleName();
 
     private FragmentManager manager;
     private TextView textView;
@@ -18,7 +17,7 @@ public class FragmentToActivityDataPassingExample extends AppCompatActivity impl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_to_data_passing_example);
 
-        manager = getFragmentManager();
+        manager = getSupportFragmentManager();
         textView = findViewById(R.id.textViewResult);
         
         addFragmentAddNumber();

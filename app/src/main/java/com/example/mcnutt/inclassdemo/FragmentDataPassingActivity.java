@@ -1,8 +1,9 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -17,28 +18,29 @@ public class FragmentDataPassingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment_data_passing);
 
-        manager = getFragmentManager();
+        manager = getSupportFragmentManager();
         firstNumber = findViewById(R.id.firstNumber);
         secondNumber = findViewById(R.id.secondNumber);
     }
 
     public void sendDataToFragment(View view) {
-        int firstNumber = Integer.valueOf(this.firstNumber.getText().toString());
-        int secondNumber = Integer.valueOf(this.secondNumber.getText().toString());
+        int firstNumber = Integer.parseInt(this.firstNumber.getText().toString());
+        int secondNumber = Integer.parseInt(this.secondNumber.getText().toString());
 
         FragmentForData fragment = new FragmentForData();
-        fragment.setOperation(new Operation(firstNumber, secondNumber));
+        Operation operation = new Operation(firstNumber, secondNumber);
+        fragment.setOperation(operation);
 
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.container, fragment, "fragA");
         transaction.commit();
     }
 
-    public class Operation {
-        public int firstNumber;
-        public int secondNumber;
+    public static class Operation {
+        int firstNumber;
+        int secondNumber;
 
-        public Operation(int firstNumber, int secondNumber) {
+        Operation(int firstNumber, int secondNumber) {
             this.firstNumber = firstNumber;
             this.secondNumber = secondNumber;
         }
