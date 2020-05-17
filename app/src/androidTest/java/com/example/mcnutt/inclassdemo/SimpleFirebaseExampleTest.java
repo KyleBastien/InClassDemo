@@ -8,8 +8,13 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import static androidx.test.espresso.Espresso.onView;
+import static androidx.test.espresso.assertion.ViewAssertions.doesNotExist;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static androidx.test.espresso.matcher.ViewMatchers.isDisplayed;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static com.example.mcnutt.inclassdemo.TestUtils.getText;
+import static org.hamcrest.Matchers.not;
 import static org.junit.Assert.*;
 
 @RunWith(AndroidJUnit4.class)
@@ -22,11 +27,9 @@ public class SimpleFirebaseExampleTest {
     @Test
     public void loadsHelloWorld() throws InterruptedException {
         // TODO
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
-        String textView = getText(withId(R.id.helloWorldFirebase));
-
-        assertThat(textView, CoreMatchers.containsString("Hello World"));
+        onView(withId(R.id.helloWorldFirebase)).check(matches(not(doesNotExist())));
     }
 
 }

@@ -252,6 +252,15 @@
             android:layout_marginTop="@dimen/activity_margin"
             android:layout_marginBottom="@dimen/activity_margin"/>
 
+        <Button
+            android:id="@+id/signOut"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_out"
+            android:onClick="signOut"
+            android:layout_marginTop="@dimen/activity_margin"
+            android:layout_marginBottom="@dimen/activity_margin"/>
+
         <ImageView
             android:id="@+id/imageView"
             android:layout_width="match_parent"

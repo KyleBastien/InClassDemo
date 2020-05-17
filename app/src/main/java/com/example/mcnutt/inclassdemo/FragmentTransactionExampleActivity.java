@@ -115,7 +115,7 @@ public class FragmentTransactionExampleActivity extends AppCompatActivity implem
             msg.append("Index ").append(i).append(" : ");
             msg.append(manager.getBackStackEntryAt(i).getName());
             msg.append("\n");
-        }
+    }
 
         Log.i(TAG, "\n" + msg.toString() + " \n ");
     }

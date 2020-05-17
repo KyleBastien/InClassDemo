@@ -1,36 +1,34 @@
 package com.example.mcnutt.inclassdemo.datamodels;
 
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.ListenerRegistration;
 
-import java.util.HashMap;
-import java.util.function.Consumer;
-import java.util.function.Function;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FirebaseHelloWorldModel {
 
-    private DatabaseReference mDatabase;
-    private HashMap<DatabaseReference, ValueEventListener> listeners;
+    private FirebaseFirestore db;
+    private List<ListenerRegistration> listeners;
 
     public FirebaseHelloWorldModel() {
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-        listeners = new HashMap<>();
+        db = FirebaseFirestore.getInstance();
+        listeners = new ArrayList<>();
     }
 
-    public void getHelloWorld(ValueEventListener viewModelCallback) {
+    public void getHelloWorld(EventListener<DocumentSnapshot> viewModelCallback) {
         // This is where we can construct our path
-        DatabaseReference helloWorldRef = mDatabase.child("helloWorld");
-        helloWorldRef.addValueEventListener(viewModelCallback);
-        listeners.put(helloWorldRef, viewModelCallback);
+        DocumentReference helloWorldRef = db.collection("examples").document("helloWorld");
+        ListenerRegistration registration = helloWorldRef.addSnapshotListener(viewModelCallback);
+        listeners.add(registration);
     }
 
     public void clear() {
         // Clear all the listeners onPause
-        listeners.forEach(Query::removeEventListener);
+        listeners.forEach(ListenerRegistration::remove);
     }
 
 }

@@ -3,9 +3,7 @@ package com.example.mcnutt.inclassdemo.viewmodels;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.example.mcnutt.inclassdemo.datamodels.LoremIpsumModel;
-
 import java.util.function.Consumer;
-import java.util.function.Function;
 
 public class LoremIpsumViewModel {
 

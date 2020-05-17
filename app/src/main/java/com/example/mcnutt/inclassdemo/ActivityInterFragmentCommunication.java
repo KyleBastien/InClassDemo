@@ -1,8 +1,9 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -16,7 +17,7 @@ public class ActivityInterFragmentCommunication extends AppCompatActivity implem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inter_fragment_communication);
-        manager = getFragmentManager();
+        manager = getSupportFragmentManager();
 
         addFragmentAddNumber();
         addFragmentResult();
@@ -46,6 +47,8 @@ public class ActivityInterFragmentCommunication extends AppCompatActivity implem
 
     public void sendDataToFragment(View view) {
         FragmentResult fragmentResult = (FragmentResult) manager.findFragmentByTag("fragB");
-        fragmentResult.addTwoNumbers(firstNum, secondNum);
+        if (fragmentResult != null) {
+            fragmentResult.addTwoNumbers(firstNum, secondNum);
+        }
     }
 }

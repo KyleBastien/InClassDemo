@@ -1,16 +1,15 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Fragment;
 import android.os.Bundle;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FragmentResult extends Fragment {
-
-    private static final String TAG = FragmentResult.class.getSimpleName();
 
     private TextView textViewResult;
 
@@ -24,7 +23,7 @@ public class FragmentResult extends Fragment {
         return view;
     }
 
-    public void addTwoNumbers(int num1, int num2) {
+    void addTwoNumbers(int num1, int num2) {
         int result = num1 + num2;
         textViewResult.setText(String.format(getString(R.string.result_prompt), result));
     }
