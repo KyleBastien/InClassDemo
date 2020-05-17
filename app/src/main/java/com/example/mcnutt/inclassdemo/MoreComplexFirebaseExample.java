@@ -70,4 +70,12 @@ public class MoreComplexFirebaseExample extends AppCompatActivity implements Tod
         viewModel.clear();
         super.onPause();
     }
+
+    public FirebaseTodoViewModel getViewModel() {
+        return viewModel;
+    }
+
+    public void setViewModel(FirebaseTodoViewModel vm) {
+        viewModel = vm;
+    }
 }
