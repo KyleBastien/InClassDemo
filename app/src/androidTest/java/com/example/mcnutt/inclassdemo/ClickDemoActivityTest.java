@@ -25,7 +25,7 @@ public class ClickDemoActivityTest {
 
     @Rule
     public ActivityTestRule<ClickDemoActivity> activityTestRule
-            = new ActivityTestRule<>(ClickDemoActivity.class, true, false);
+            = new ActivityTestRule<>(ClickDemoActivity.class, true, true);
 
     @Test
     public void goToSecondActivity() {
