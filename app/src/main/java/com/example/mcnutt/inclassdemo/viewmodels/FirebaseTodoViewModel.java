@@ -23,14 +23,16 @@ public class FirebaseTodoViewModel {
     public void getTodoItems(Consumer<ArrayList<TodoItem>> responseCallback) {
         todoModel.getTodoItems(
             (QuerySnapshot querySnapshot) -> {
-                ArrayList<TodoItem> todoItems = new ArrayList<>();
-                for (DocumentSnapshot todoSnapshot : querySnapshot.getDocuments()) {
-                    TodoItem item = todoSnapshot.toObject(TodoItem.class);
-                    assert item != null;
-                    item.uid = todoSnapshot.getId();
-                    todoItems.add(item);
+                if (querySnapshot != null) {
+                    ArrayList<TodoItem> todoItems = new ArrayList<>();
+                    for (DocumentSnapshot todoSnapshot : querySnapshot.getDocuments()) {
+                        TodoItem item = todoSnapshot.toObject(TodoItem.class);
+                        assert item != null;
+                        item.uid = todoSnapshot.getId();
+                        todoItems.add(item);
+                    }
+                    responseCallback.accept(todoItems);
                 }
-                responseCallback.accept(todoItems);
             },
             (databaseError -> System.out.println("Error reading Todo Items: " + databaseError))
         );
