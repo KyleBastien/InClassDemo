@@ -22,7 +22,7 @@ public class SimpleFirebaseExampleTest {
     @Test
     public void loadsHelloWorld() throws InterruptedException {
         // TODO
-        Thread.sleep(2000);
+        Thread.sleep(5000);
 
         String textView = getText(withId(R.id.helloWorldFirebase));
 
