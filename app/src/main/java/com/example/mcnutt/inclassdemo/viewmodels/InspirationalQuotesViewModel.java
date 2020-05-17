@@ -24,10 +24,9 @@ public class InspirationalQuotesViewModel {
         this.model.getRandomInspirationalQuote(
             (JSONArray jsonArray) -> {
                 Gson gson = new Gson();
-                // Hardcoding 0 because I know the API URL will only return me 1 response
-                JSONObject object = null;
                 try {
-                    object = jsonArray.getJSONObject(0);
+                    // Hardcoding 0 because I know the API URL will only return me 1 response
+                    JSONObject object = jsonArray.getJSONObject(0);
                     InspirationalQuote quote = gson.fromJson(object.toString(), InspirationalQuote.class);
                     resultCallback.accept(quote.getContent().getRendered());
                 } catch (JSONException e) {

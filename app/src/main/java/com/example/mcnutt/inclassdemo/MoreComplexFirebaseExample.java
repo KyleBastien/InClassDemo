@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.FrameLayout;
 
 import com.example.mcnutt.inclassdemo.models.TodoItem;
 import com.example.mcnutt.inclassdemo.viewmodels.FirebaseTodoViewModel;
@@ -19,7 +18,6 @@ public class MoreComplexFirebaseExample extends AppCompatActivity implements Tod
 
     private FirebaseTodoViewModel viewModel;
     private EditText newTodoItemText;
-    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +27,6 @@ public class MoreComplexFirebaseExample extends AppCompatActivity implements Tod
         viewModel = new FirebaseTodoViewModel();
 
         newTodoItemText = findViewById(R.id.newTodoItemText);
-        frameLayout = findViewById(R.id.todoItemListFragmentContainer);
 
         viewModel.getTodoItems(
             (ArrayList<TodoItem> todoItems) -> {

@@ -2,10 +2,10 @@ package com.example.mcnutt.inclassdemo.viewmodels;
 
 import com.example.mcnutt.inclassdemo.datamodels.FirebaseTodoModel;
 import com.example.mcnutt.inclassdemo.models.TodoItem;
-import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.function.Consumer;
 
 public class FirebaseTodoViewModel {
@@ -22,12 +22,12 @@ public class FirebaseTodoViewModel {
 
     public void getTodoItems(Consumer<ArrayList<TodoItem>> responseCallback) {
         todoModel.getTodoItems(
-            (DataSnapshot dataSnapshot) -> {
+            (QuerySnapshot querySnapshot) -> {
                 ArrayList<TodoItem> todoItems = new ArrayList<>();
-                for (DataSnapshot todoSnapshot : dataSnapshot.getChildren()) {
-                    TodoItem item = todoSnapshot.getValue(TodoItem.class);
+                for (DocumentSnapshot todoSnapshot : querySnapshot.getDocuments()) {
+                    TodoItem item = todoSnapshot.toObject(TodoItem.class);
                     assert item != null;
-                    item.uid = todoSnapshot.getKey();
+                    item.uid = todoSnapshot.getId();
                     todoItems.add(item);
                 }
                 responseCallback.accept(todoItems);

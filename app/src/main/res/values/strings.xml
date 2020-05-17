@@ -111,4 +111,5 @@
     <string name="button3">Button3</string>
     <string name="go_to_gravity_example">Go to Gravity Example</string>
     <string name="go_to_constraint_layout_example">Go to Constraint Layout Example</string>
+    <string name="sign_out">Sign Out</string>
 </resources>

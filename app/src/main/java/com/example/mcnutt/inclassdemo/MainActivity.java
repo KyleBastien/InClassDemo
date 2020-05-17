@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mcnutt.inclassdemo.entity.User;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
 import java.lang.ref.WeakReference;
@@ -46,6 +48,19 @@ public class MainActivity extends AppCompatActivity  {
         user.setFirstName(Objects.requireNonNull(getString(R.string.example_user_first_name)));
         user.setLastName(Objects.requireNonNull(getString(R.string.example_user_last_name)));
         user.setPhotoUrl(Objects.requireNonNull(getString(R.string.example_user_photo)));
+
+        FirebaseAuth firebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if (firebaseUser == null) {
+            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            user.setEmail(Objects.requireNonNull(firebaseUser.getEmail()));
+            user.setFirstName(Objects.requireNonNull(firebaseUser.getDisplayName()).substring(0, firebaseUser.getDisplayName().indexOf(' ')));
+            user.setLastName(firebaseUser.getDisplayName().substring(firebaseUser.getDisplayName().indexOf(' ') + 1));
+            user.setPhotoUrl(Objects.requireNonNull(firebaseUser.getPhotoUrl()).toString());
+        }
 
         new SetUserTask(this, user).execute();
 
@@ -230,6 +245,12 @@ public class MainActivity extends AppCompatActivity  {
     public void goToConstraintLayoutExample(View view) {
         Intent intent = new Intent(MainActivity.this, ConstraintActivityExample.class);
         startActivity(intent);
+    }
+
+    public void signOut(View view) {
+        FirebaseAuth firebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
+
+        firebaseAuth.signOut();
     }
 
     private static class SetUserTask extends AsyncTask<Void, Void, User> {

@@ -13,8 +13,10 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
 public class SignInActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,7 +41,7 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         // Initialize FirebaseAuth
         mFirebaseAuth = FirebaseAuth.getInstance();
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestIdToken("258975454799-fottgfs7nmh1hb8uln93nru4mtk6jnir.apps.googleusercontent.com")
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
@@ -63,10 +65,12 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
 
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
+            Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
-                GoogleSignInAccount account = GoogleSignIn.getSignedInAccountFromIntent(data).getResult(ApiException.class);
+                GoogleSignInAccount account = task.getResult(ApiException.class);
                 assert account != null;
-                firebaseAuthWithGoogle(account);
+                Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
+                firebaseAuthWithGoogle(account.getIdToken());
             } catch (ApiException e) {
                 // The ApiException status code indicates the detailed failure reason.
                 // Please refer to the GoogleSignInStatusCodes class reference for more information.
@@ -75,9 +79,8 @@ public class SignInActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
-        Log.d(TAG, "firebaseAuthWithGoogle:" + acct.getId());
-        AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
+    private void firebaseAuthWithGoogle(String idToken) {
+        AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mFirebaseAuth.signInWithCredential(credential).addOnCompleteListener(this, task -> {
             Log.d(TAG, "signInWithCredential:onComplete:" + task.isSuccessful());
 

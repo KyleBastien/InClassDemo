@@ -24,8 +24,8 @@ import java.util.List;
 public class TodoItemFragment extends Fragment {
 
     // TODO: Customize parameter argument names
-    public static final String ARG_COLUMN_COUNT = "column-count";
-    public static final String ARG_DATA_SET = "data-set";
+    private static final String ARG_COLUMN_COUNT = "column-count";
+    static final String ARG_DATA_SET = "data-set";
     // TODO: Customize parameters
     private int mColumnCount = 3;
     private List<TodoItem> mDataSet;
@@ -79,7 +79,7 @@ public class TodoItemFragment extends Fragment {
 
 
     @Override
-    public void onAttach(Context context) {
+    public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         if (context instanceof OnListFragmentInteractionListener) {
             mListener = (OnListFragmentInteractionListener) context;

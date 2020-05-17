@@ -10,7 +10,6 @@ import com.example.mcnutt.inclassdemo.viewmodels.LoremIpsumViewModel;
 public class SimpleVolleyExampleActivity extends AppCompatActivity {
 
     private TextView textView;
-    private LoremIpsumViewModel viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +17,7 @@ public class SimpleVolleyExampleActivity extends AppCompatActivity {
         setContentView(R.layout.activity_simple_volley_example);
 
         LoremIpsumModel dataModel = new LoremIpsumModel(this);
-        viewModel = new LoremIpsumViewModel(dataModel);
+        LoremIpsumViewModel viewModel = new LoremIpsumViewModel(dataModel);
 
         textView = findViewById(R.id.textViewSimpleVolleyExample);
 
