@@ -6,36 +6,28 @@ import android.widget.TextView;
 
 import com.example.mcnutt.inclassdemo.models.OnGetDataListener;
 import com.example.mcnutt.inclassdemo.viewmodels.FirebaseHelloWorldViewModel;
+import com.example.mcnutt.inclassdemo.viewmodels.FirebaseHelloWorldViewModel2;
 
 public class SimpleFirebaseExample extends AppCompatActivity {
 
-    private FirebaseHelloWorldViewModel vm;
     private TextView textView;
+    private FirebaseHelloWorldViewModel2 viewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_simple_firebase_example);
-        vm = new FirebaseHelloWorldViewModel();
+
+        viewModel = new FirebaseHelloWorldViewModel2();
 
         textView = findViewById(R.id.helloWorldFirebase);
 
-        vm.getHelloWorld(new OnGetDataListener<String>() {
-            @Override
-            public void onSuccess(String dataResponse) {
-                textView.setText(dataResponse);
-            }
-
-            @Override
-            public void onFailure() {
-                System.out.println("Looks like some error happened when we tried to get helloWorld");
-            }
-        });
+        viewModel.getHelloWorld((helloWorld) -> textView.setText(helloWorld));
     }
 
     @Override
     protected void onPause() {
-        vm.clear();
         super.onPause();
+        viewModel.clear();
     }
 }
