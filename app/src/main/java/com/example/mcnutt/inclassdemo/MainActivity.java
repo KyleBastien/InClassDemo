@@ -1,11 +1,10 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -15,11 +14,11 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mcnutt.inclassdemo.entity.User;
+import com.example.mcnutt.inclassdemo.viewmodels.UserViewModel;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.squareup.picasso.Picasso;
 
-import java.lang.ref.WeakReference;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity  {
@@ -34,6 +33,8 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        UserViewModel userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
 
         loginBtn = findViewById(R.id.loginBtn);
         editText = findViewById(R.id.nameEditText);
@@ -62,7 +63,7 @@ public class MainActivity extends AppCompatActivity  {
             user.setPhotoUrl(Objects.requireNonNull(firebaseUser.getPhotoUrl()).toString());
         }
 
-        new SetUserTask(this, user).execute();
+        userViewModel.insertAll(this, user);
 
         if (user.getPhotoUrl() != null) {
             Picasso.get().load(user.getPhotoUrl()).into(userPhoto);
@@ -251,29 +252,5 @@ public class MainActivity extends AppCompatActivity  {
         FirebaseAuth firebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
 
         firebaseAuth.signOut();
-    }
-
-    private static class SetUserTask extends AsyncTask<Void, Void, User> {
-
-        private WeakReference<Activity> weakActivity;
-        private User user;
-
-        SetUserTask(Activity activity, User user) {
-            weakActivity = new WeakReference<>(activity);
-            this.user = user;
-        }
-
-        @Override
-        protected User doInBackground(Void... voids) {
-            Activity activity = weakActivity.get();
-            if(activity == null) {
-                return null;
-            }
-
-            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
-
-            db.userDao().insertAll(user);
-            return user;
-        }
     }
 }
