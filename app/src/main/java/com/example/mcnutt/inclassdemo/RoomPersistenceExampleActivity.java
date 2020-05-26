@@ -1,15 +1,18 @@
 package com.example.mcnutt.inclassdemo;
 
-import android.app.Activity;
-import android.os.AsyncTask;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.mcnutt.inclassdemo.entity.User;
+import com.example.mcnutt.inclassdemo.viewmodels.UserViewModel;
+import com.squareup.picasso.Picasso;
 
-import java.lang.ref.WeakReference;
 import java.util.List;
 
 public class RoomPersistenceExampleActivity extends AppCompatActivity {
@@ -17,6 +20,9 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
     public TextView email;
     public TextView displayName;
     public TextView photoUrl;
+    private ImageView photoImageView;
+
+    private UserViewModel userViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +32,32 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         displayName = findViewById(R.id.displayName);
         photoUrl = findViewById(R.id.photoUrl);
+        photoImageView = findViewById(R.id.photoImage);
 
-        new GetUserTask(this, "mcnuttkyle93@gmail.com").execute();
+        userViewModel = new ViewModelProvider(this).get(UserViewModel.class);
+
+        // Create the observer which updates the UI.
+        final Observer<List<User>> getUsersObserver = newUsers -> {
+            if (newUsers == null || newUsers.size() <= 0) {
+                return;
+            }
+
+            User user = newUsers.get(0);
+
+            if (user == null) {
+                return;
+            }
+
+            email.setText(user.getEmail());
+            displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
+            photoUrl.setText(user.getPhotoUrl());
+            if (user.getPhotoUrl() != null) {
+                Picasso.get().load(user.getPhotoUrl()).into(photoImageView);
+            }
+        };
+
+        String[] emails = { "mcnuttkyle93@gmail.com" };
+        userViewModel.loadAllByIds(this, emails).observe(this, getUsersObserver);
     }
 
     public void updateDatabase(View view) {
@@ -41,7 +71,11 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
         fakeNewUser.setFirstName("Thisis");
         fakeNewUser.setLastName("afakeuser");
 
-        new UpdateUserTask(this, fakeNewUser).execute();
+        userViewModel.updateUsers(this, fakeNewUser);
+
+        this.email.setText(fakeNewUser.getEmail());
+        displayName.setText(String.format("%s %s", fakeNewUser.getFirstName(), fakeNewUser.getLastName()));
+        photoUrl.setText(fakeNewUser.getPhotoUrl());
     }
 
     public void deleteUser(View view) {
@@ -54,121 +88,10 @@ public class RoomPersistenceExampleActivity extends AppCompatActivity {
             currentUser.setLastName(this.displayName.getText().toString().split(" ")[1]);
         }
 
+        userViewModel.deleteUser(this, currentUser);
 
-        new DeleteUserTask(this, currentUser).execute();
-    }
-
-    private static class DeleteUserTask extends AsyncTask<Void, Void, User> {
-
-        private WeakReference<Activity> weakActivity;
-        private User user;
-
-        public DeleteUserTask(Activity activity, User user) {
-            weakActivity = new WeakReference<>(activity);
-            this.user = user;
-        }
-
-        @Override
-        protected User doInBackground(Void... voids) {
-            Activity activity = weakActivity.get();
-            if(activity == null) {
-                return null;
-            }
-
-            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
-
-            db.userDao().delete(user);
-            return user;
-        }
-
-        @Override
-        protected void onPostExecute(User user) {
-            RoomPersistenceExampleActivity activity = (RoomPersistenceExampleActivity) weakActivity.get();
-            if(user == null || activity == null) {
-                return;
-            }
-
-            activity.email.setText("");
-            activity.displayName.setText("");
-            activity.photoUrl.setText("");
-        }
-    }
-
-    private static class UpdateUserTask extends AsyncTask<Void, Void, User> {
-
-        private WeakReference<Activity> weakActivity;
-        private User user;
-
-        public UpdateUserTask(Activity activity, User user) {
-            weakActivity = new WeakReference<>(activity);
-            this.user = user;
-        }
-
-        @Override
-        protected User doInBackground(Void... voids) {
-            Activity activity = weakActivity.get();
-            if(activity == null) {
-                return null;
-            }
-
-            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
-
-            db.userDao().updateUsers(user);
-            return user;
-        }
-
-        @Override
-        protected void onPostExecute(User user) {
-            RoomPersistenceExampleActivity activity = (RoomPersistenceExampleActivity) weakActivity.get();
-            if(user == null || activity == null) {
-                return;
-            }
-
-            activity.email.setText(user.getEmail());
-            activity.displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
-            activity.photoUrl.setText(user.getPhotoUrl());
-        }
-    }
-
-    private static class GetUserTask extends AsyncTask<Void, Void, User> {
-
-        private WeakReference<Activity> weakActivity;
-        private String userEmail;
-
-        public GetUserTask(Activity activity, String userEmail) {
-            weakActivity = new WeakReference<>(activity);
-            this.userEmail = userEmail;
-        }
-
-        @Override
-        protected User doInBackground(Void... voids) {
-            Activity activity = weakActivity.get();
-            if(activity == null) {
-                return null;
-            }
-
-            AppDatabase db = AppDatabaseSingleton.getDatabase(activity.getApplicationContext());
-
-            String[] emails = { userEmail };
-
-            List<User> users = db.userDao().loadAllByIds(emails);
-
-            if(users.size() <= 0 || users.get(0) == null) {
-                return null;
-            }
-            return users.get(0);
-        }
-
-        @Override
-        protected void onPostExecute(User user) {
-            RoomPersistenceExampleActivity activity = (RoomPersistenceExampleActivity) weakActivity.get();
-            if(user == null || activity == null) {
-                return;
-            }
-
-            activity.email.setText(user.getEmail());
-            activity.displayName.setText(String.format("%s %s", user.getFirstName(), user.getLastName()));
-            activity.photoUrl.setText(user.getPhotoUrl());
-        }
+        email.setText("");
+        displayName.setText("");
+        photoUrl.setText("");
     }
 }

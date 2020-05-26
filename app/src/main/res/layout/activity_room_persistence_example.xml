@@ -24,9 +24,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
+    <ImageView
+        android:id="@+id/photoImage"
+        android:layout_below="@+id/photoUrl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/a_picture_of_the_users_photo" />
+
     <Button
         android:id="@+id/update"
-        android:layout_below="@+id/photoUrl"
+        android:layout_below="@+id/photoImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/update"
@@ -34,7 +41,7 @@
 
     <Button
         android:id="@+id/delete"
-        android:layout_below="@+id/photoUrl"
+        android:layout_below="@+id/photoImage"
         android:layout_toEndOf="@+id/update"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
