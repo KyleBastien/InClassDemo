@@ -10,7 +10,7 @@ import com.example.mcnutt.inclassdemo.viewmodels.FirebaseHelloWorldViewModel;
 public class SimpleFirebaseExample extends AppCompatActivity {
 
     private FirebaseHelloWorldViewModel vm;
-    private TextView textView;
+    private TextView tv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,12 +18,12 @@ public class SimpleFirebaseExample extends AppCompatActivity {
         setContentView(R.layout.activity_simple_firebase_example);
         vm = new FirebaseHelloWorldViewModel();
 
-        textView = findViewById(R.id.helloWorldFirebase);
+        tv = findViewById(R.id.helloWorldFirebase);
 
         vm.getHelloWorld(new OnGetDataListener<String>() {
             @Override
             public void onSuccess(String dataResponse) {
-                textView.setText(dataResponse);
+                tv.setText(dataResponse);
             }
 
             @Override
