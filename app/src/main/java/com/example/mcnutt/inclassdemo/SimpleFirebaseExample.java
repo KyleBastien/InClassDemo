@@ -9,7 +9,7 @@ import com.example.mcnutt.inclassdemo.viewmodels.FirebaseHelloWorldViewModel;
 
 public class SimpleFirebaseExample extends AppCompatActivity {
 
-    private FirebaseHelloWorldViewModel vmsssss;
+    private FirebaseHelloWorldViewModel vm;
     private TextView textView;
 
     @Override
