@@ -50,18 +50,18 @@ public class MainActivity extends AppCompatActivity  {
         user.setLastName(Objects.requireNonNull(getString(R.string.example_user_last_name)));
         user.setPhotoUrl(Objects.requireNonNull(getString(R.string.example_user_photo)));
 
-        FirebaseAuth firebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
-        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
-        if (firebaseUser == null) {
-            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            user.setEmail(Objects.requireNonNull(firebaseUser.getEmail()));
-            user.setFirstName(Objects.requireNonNull(firebaseUser.getDisplayName()).substring(0, firebaseUser.getDisplayName().indexOf(' ')));
-            user.setLastName(firebaseUser.getDisplayName().substring(firebaseUser.getDisplayName().indexOf(' ') + 1));
-            user.setPhotoUrl(Objects.requireNonNull(firebaseUser.getPhotoUrl()).toString());
-        }
+//        FirebaseAuth firebaseAuth = FirebaseAuthGetter.getFirebaseAuth();
+//        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+//        if (firebaseUser == null) {
+//            Intent intent = new Intent(MainActivity.this, SignInActivity.class);
+//            startActivity(intent);
+//            finish();
+//        } else {
+//            user.setEmail(Objects.requireNonNull(firebaseUser.getEmail()));
+//            user.setFirstName(Objects.requireNonNull(firebaseUser.getDisplayName()).substring(0, firebaseUser.getDisplayName().indexOf(' ')));
+//            user.setLastName(firebaseUser.getDisplayName().substring(firebaseUser.getDisplayName().indexOf(' ') + 1));
+//            user.setPhotoUrl(Objects.requireNonNull(firebaseUser.getPhotoUrl()).toString());
+//        }
 
         userViewModel.insertAll(this, user);
 
