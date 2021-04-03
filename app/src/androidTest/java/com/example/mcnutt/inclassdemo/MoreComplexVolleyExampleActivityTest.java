@@ -25,7 +25,6 @@ public class MoreComplexVolleyExampleActivityTest {
         Thread.sleep(2000);
 
         onView(withId(R.id.kittenImage)).check(matches(isDisplayed()));
-        onView(withId(R.id.textViewForQuote)).check(matches(isDisplayed()));
     }
 
 }

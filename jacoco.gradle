@@ -1,6 +1,6 @@
 apply plugin: 'jacoco'
 jacoco {
-    toolVersion = "0.7.9"
+    toolVersion = "0.8.6"
 }
 def coverageSourceDirs = [
     'src/main/java',
@@ -38,25 +38,22 @@ def kotlinClasses = fileTree(
 
 tasks.withType(Test) {
     jacoco.includeNoLocationClasses = true
+    jacoco.excludes = ['jdk.internal.*']
 }
 
 task jacocoTestReport(type : JacocoReport, dependsOn : ['testDebugUnitTest']) {
     group       = 'Reporting'
     description = 'Generate JaCoCo coverage reports'
-
     reports {
         xml.enabled  = true
         html.enabled = true
     }
-
-    classDirectories = files([javaClasses, kotlinClasses])
-
-    sourceDirectories = files(coverageSourceDirs)
-    executionData     = fileTree(
-        dir     : "$buildDir",
-        include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/*coverage.ec' ]
-    )
-
+    getClassDirectories().setFrom([javaClasses, kotlinClasses])
+    getSourceDirectories().setFrom(coverageSourceDirs)
+    getExecutionData().setFrom(fileTree(
+            dir     : "$buildDir",
+            include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/*coverage.ec' ]
+    ))
     doFirst {
         files([javaClasses, kotlinClasses]).getFiles().each { file ->
             if (file.name.contains('$$')) {
@@ -69,20 +66,16 @@ task jacocoTestReport(type : JacocoReport, dependsOn : ['testDebugUnitTest']) {
 task jacocoTestReportLocal(type : JacocoReport, dependsOn : ['testDebugUnitTest', 'createDebugCoverageReport']) {
     group       = 'Reporting'
     description = 'Generate JaCoCo coverage reports'
-
     reports {
         xml.enabled  = true
         html.enabled = true
     }
-
-    classDirectories = files([javaClasses, kotlinClasses])
-
-    sourceDirectories = files(coverageSourceDirs)
-    executionData     = fileTree(
+    getClassDirectories().setFrom([javaClasses, kotlinClasses])
+    getSourceDirectories().setFrom(coverageSourceDirs)
+    getExecutionData().setFrom(fileTree(
             dir     : "$buildDir",
             include : [ 'jacoco/testDebugUnitTest.exec', 'outputs/code_coverage/debugAndroidTest/connected/*coverage.ec' ]
-    )
-
+    ))
     doFirst {
         files([javaClasses, kotlinClasses]).getFiles().each { file ->
             if (file.name.contains('$$')) {

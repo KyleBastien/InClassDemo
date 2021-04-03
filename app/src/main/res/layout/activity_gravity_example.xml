@@ -9,7 +9,8 @@
         android:layout_width="@dimen/onethirty"
         android:layout_height="@dimen/onethirty"
         android:text="@string/button1"
-        android:gravity="top"/>
+        android:gravity="top"
+        android:id="@+id/buttonOneGravity"/>
 
     <Button
         android:layout_width="@dimen/onethirty"
