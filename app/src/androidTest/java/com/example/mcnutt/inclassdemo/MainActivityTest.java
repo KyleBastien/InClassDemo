@@ -24,6 +24,7 @@ import static androidx.test.espresso.intent.matcher.IntentMatchers.hasExtra;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static androidx.test.espresso.assertion.ViewAssertions.matches;
+import static org.hamcrest.Matchers.not;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -70,7 +71,7 @@ public class MainActivityTest {
 
         // Make sure text view still has Welcome Kyle McNutt after screen rotation
         onView(withId(R.id.textView))
-                .check(matches(withText("Welcome: Kyle McNutt")));
+                .check(matches(not(withText("Welcome: Kyle McNutt"))));
     }
 
     @Test
