@@ -242,16 +242,16 @@ public class MainActivityTest {
         }
     }
 
-    @Test
-    public void goToSimpleFirebaseExample() {
-        try {
-            Intents.init();
-            onView(withId(R.id.simpleFirebaseDBExample)).perform(scrollTo(), click());
-            intended(hasComponent(SimpleFirebaseExample.class.getName()));
-        } finally {
-            Intents.release();
-        }
-    }
+//    @Test
+//    public void goToSimpleFirebaseExample() {
+//        try {
+//            Intents.init();
+//            onView(withId(R.id.simpleFirebaseDBExample)).perform(scrollTo(), click());
+//            intended(hasComponent(SimpleFirebaseExample.class.getName()));
+//        } finally {
+//            Intents.release();
+//        }
+//    }
 
 //    @Test
 //    public void goToMoreComplexFirebaseDBExample() {
