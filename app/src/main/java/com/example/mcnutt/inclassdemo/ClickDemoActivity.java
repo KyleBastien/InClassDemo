@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+// This is a comment, look how important this activity is
 public class ClickDemoActivity extends AppCompatActivity {
 
     private static final String TAG = ClickDemoActivity.class.getSimpleName();
